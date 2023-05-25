@@ -9,8 +9,6 @@ const WhiteButton = (props: Props) => {
 				padding: '20px 40px',
 				maxWidth: '339px',
 				width: '100%',
-				height: '60px',
-				left: 'calc(50% - 339px / 2 + 0.5px)',
 				background: '#ffffff',
 				borderRadius: '50px',
 			}}

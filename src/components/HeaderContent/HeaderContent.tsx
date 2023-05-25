@@ -25,7 +25,7 @@ export default function HeaderContent() {
 					<div className={styles.white_box_timer}>
 						<div>
 							<span style={{ fontSize: '24px', marginBottom: '20px', color: '#ff6200' }}>Срок кредита</span>
-							<p style={{ fontSize: '52px', fontWeight: 700, color: '#323438' }}>
+							<p style={{ fontSize: '52px', fontWeight: 700, color: '#323438', marginTop: '20px' }}>
 								От 15 дней <br /> до 3 лет
 							</p>
 						</div>

@@ -1,7 +1,7 @@
 .orange_box {
 	// max-width: 550px;
 	width: 100%;
-	// max-height: 665px;
+	max-height: 665px;
 	// min-height: 400px;
 	padding: 40px;
 	background: linear-gradient(156.15deg, #eaa434 6.33%, #ea5c34 93.01%);
@@ -12,8 +12,12 @@
 	// gap: 300px;
 
 	@media screen and (max-width: 890px) {
-		min-height: 450px;
+		min-height: 550px;
 		max-width: 558px;
+
+		.orange_box_text {
+			font-size: 2.8rem;
+		}
 	}
 }
 .header_main_content {
@@ -23,6 +27,8 @@
 	max-width: 1200px;
 	padding-top: 150px;
 	gap: 110px;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 .main_content_horizontal {
 	display: flex;
@@ -56,7 +62,7 @@
 	//max-width: 550px;
 	width: 100%;
 	min-height: 665px;
-	//max-height: 665px;
+	// max-height: 665px;
 	height: 100%;
 	background: #f1f2f4;
 	border-radius: 40px;
@@ -73,11 +79,20 @@
 
 	@media screen and (max-width: 890px) {
 		max-width: 558px;
+		gap: 0;
+		justify-content: center;
+		.white_box_headline {
+			font-size: 6rem;
+			margin-bottom: 20px;
+		}
+		.white_box_paragraph {
+			margin-bottom: 100px;
+		}
 	}
 }
 .blue_box {
-	//max-width: 550px;
-	width: 100%;
+	// max-width: 588px;
+	// width: 100%;
 	min-height: 665px;
 	// max-height: 665px;
 	// height: 100%;
@@ -165,13 +180,15 @@
 	flex-direction: column;
 	justify-content: space-between;
 	// max-height: 665px;
-	max-width: 588px;
+	max-width: 558px;
 	width: 100%;
 	padding: 40px;
 	background-image: url('../../../public/assets/timer.png');
 
 	@media screen and (max-width: 890px) {
 		min-height: 565px;
+		max-width: 558px;
+
 		height: 100%;
 	}
 }

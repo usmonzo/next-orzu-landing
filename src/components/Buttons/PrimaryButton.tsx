@@ -1,6 +1,7 @@
 interface Props {
 	text: string;
 	aligned?: string;
+	onClick?: Function;
 }
 
 const PrimaryButton = (props: Props) => {

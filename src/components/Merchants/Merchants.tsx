@@ -1,3 +1,4 @@
+'use client';
 import './Merchants.scss';
 import WhiteButton from '../Buttons/WhiteButton';
 import MerchBox from '../UI/MerchBox';
@@ -17,8 +18,12 @@ import azs from '../../../public/assets/Vector12.png';
 import education from '../../../public/assets/Vector13.png';
 import child from '../../../public/assets/Vector14.png';
 import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 
 const Merchants = () => {
+	// const randArr = useState<(randArr:number[])>;
+	// const randArr = useState<number[]>([]);
+
 	return (
 		<section>
 			<div className="merch-container">

@@ -1,0 +1,22 @@
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 40px;
+}
+.prefooter_container {
+	min-height: 100vh;
+	background: #fff;
+	padding: 120px 0;
+}
+.calc_headline {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 80px;
+	line-height: 100%;
+	color: #323438;
+	margin-bottom: 40px;
+
+	@media screen and (max-width: 900px) {
+		font-size: 2.8rem;
+	}
+}
