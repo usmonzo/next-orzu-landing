@@ -15,7 +15,8 @@ export default function Calculator() {
 			<div className={styles.choice_container}>
 				<>
 					<div className={styles.input_container}>
-						<VStack alignItems={'flex-start'} paddingLeft={'40px'}  >
+						<VStack alignItems={'flex-start'} p={'30px 0 25px' +
+							' 40px'}>
 							<label className={styles.input_label}>Введите сумму кредита</label>
 							<Input
 								variant={'unstyled'}
@@ -42,9 +43,9 @@ export default function Calculator() {
 							max={50000}
 							paddingTop={0}
 							// maxW={'100px'}
-							marginTop={'20px'}
 							alignSelf={'center'}
 							justifySelf={'flex-end'}
+							className={styles.money_slider}
 						>
 							<SliderTrack
 								alignSelf={'center'}
