@@ -15,7 +15,7 @@ export default function Calculator() {
 			<div className={styles.choice_container}>
 				<>
 					<div className={styles.input_container}>
-						<VStack alignItems={'flex-start'} padding={'45px 20px 0px 20px'}>
+						<VStack alignItems={'flex-start'} paddingLeft={'40px'}  >
 							<label className={styles.input_label}>Введите сумму кредита</label>
 							<Input
 								variant={'unstyled'}
@@ -30,6 +30,7 @@ export default function Calculator() {
 								focusBorderColor={'transparent'}
 								defaultValue={'125 000'}
 								paddingLeft={0}
+								maxLength={5}
 								style={{ caretShape: 'block' }}
 								className={styles.money_input}
 							/>
@@ -40,8 +41,10 @@ export default function Calculator() {
 							min={50}
 							max={50000}
 							paddingTop={0}
-							// maxW={'582px'}
+							// maxW={'100px'}
+							marginTop={'20px'}
 							alignSelf={'center'}
+							justifySelf={'flex-end'}
 						>
 							<SliderTrack
 								alignSelf={'center'}
