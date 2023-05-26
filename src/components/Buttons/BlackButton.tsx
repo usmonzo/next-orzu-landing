@@ -13,7 +13,7 @@ const BlackButton = (props: Props) => {
 				borderRadius: ' 50px',
 				color: '#fff',
 				fontWeight: '500',
-				fontSize: '20px',
+				fontSize: '1.3rem',
 				border: 'none',
 			}}
 		>

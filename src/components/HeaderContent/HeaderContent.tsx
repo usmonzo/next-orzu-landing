@@ -1,6 +1,8 @@
 import BlackButton from '../Buttons/BlackButton';
 import PrimaryButton from '../Buttons/PrimaryButton';
 import styles from './HeaderContent.module.scss';
+import Image from "next/image";
+import timer from "../../../public/assets/timer.png";
 
 export default function HeaderContent() {
 	return (
@@ -13,11 +15,11 @@ export default function HeaderContent() {
 					</div>
 					<div className={styles.white_box}>
 						<h2 className={styles.white_box_headline}>5 лет</h2>
-						<div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+						<div  className={styles.wh}>
 							<p className={styles.white_box_secondary}>Единоразовое подключение</p>
 							<p className={styles.white_box_paragraph}>Получайте деньги, не посещая офис, в течение 5 лет</p>
 						</div>
-						<PrimaryButton text="Подробнее" aligned="flex-start" />
+						<PrimaryButton text="Подробнее" aligned="flex-start" justify={'end'}/>
 					</div>
 				</div>
 				<h1 className={styles.header_main_content_headline}>Пользуйтесь где угодно и когда угодно</h1>
@@ -30,6 +32,7 @@ export default function HeaderContent() {
 							</p>
 						</div>
 						<PrimaryButton text="Подробнее" aligned="flex-start" />
+						<Image src={timer} alt={''} width={573.11} height={538} style={{opacity:'0.2'}} className={styles.white_box_timer_icon}/>
 					</div>
 					<div className={styles.blue_box}>
 						<h2 className={styles.orange_box_text} style={{ fontWeight: '900' }}>

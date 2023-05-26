@@ -29,6 +29,8 @@
 	gap: 110px;
 	padding-left: 20px;
 	padding-right: 20px;
+
+
 }
 .main_content_horizontal {
 	display: flex;
@@ -50,12 +52,12 @@
 .orange_box_text {
 	font-style: normal;
 	font-weight: 700;
-	font-size: 90px;
+	font-size: 5.6rem;
 	line-height: 100%;
 	color: #ffffff;
 
 	@media screen and (max-width: 1160px) {
-		font-size: 70px;
+		font-size: 4.3rem;
 	}
 }
 .white_box {
@@ -72,21 +74,30 @@
 	gap: 20px;
 	padding: 40px;
 
+		.white_box_horizontal{
+display: flex; flex-direction: column; gap: 20px;
+		}
 	@media screen and (max-width: 1000px) {
 		gap: 0;
 		min-height: 565px;
 	}
 
 	@media screen and (max-width: 890px) {
+		justify-content: space-between;
 		max-width: 558px;
+
 		gap: 0;
-		justify-content: center;
+		.white_box_horizontal{
+			max-height: 200px;
+		}
+
 		.white_box_headline {
 			font-size: 6rem;
 			margin-bottom: 20px;
 		}
 		.white_box_paragraph {
-			margin-bottom: 100px;
+			margin-top:20px ;
+			margin-bottom: 30px;
 		}
 	}
 }
@@ -174,6 +185,7 @@
 	}
 }
 .white_box_timer {
+	position: relative;
 	background-color: #f1f2f4;
 	border-radius: 40px;
 	display: flex;
@@ -183,7 +195,7 @@
 	max-width: 558px;
 	width: 100%;
 	padding: 40px;
-	background-image: url('../../../public/assets/timer.png');
+	overflow: hidden;
 
 	@media screen and (max-width: 890px) {
 		min-height: 565px;
@@ -191,4 +203,12 @@
 
 		height: 100%;
 	}
+}
+.white_box_timer_icon{
+	position: absolute;
+	max-width: 371.36px;
+	//left: 0;
+	right: -10%;
+	top: 45%;
+	bottom: 0;
 }

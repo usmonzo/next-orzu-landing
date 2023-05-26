@@ -62,8 +62,8 @@ export default function Calculator() {
 							<SliderThumb
 								border={'8px solid #323438'}
 								bg={'white'}
-								w={'35px'}
-								h={'35px'}
+								w={'28px'}
+								h={'28px'}
 								_focus={{ outline: 'none', boxShadow: 'none' }}
 								_active={{}}
 								outline={'none'}
