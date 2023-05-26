@@ -1,36 +1,40 @@
 "use client";
-import { Button } from "@chakra-ui/react";
+import styled from "@emotion/styled";
 
 interface Props {
   text: string;
-  aligned?: string;
-  justify?: string;
+  aligned?: any;
+  justify?: any;
   onClick?: Function;
 }
+interface IComponent {
+  justifySelf: any;
+  align: any;
+}
+export const PrimaryButtonContainer = styled.button<IComponent>`
+  padding: 17px 30px;
+  gap: 12px;
+  border-radius: 50px;
+  background-color: #ff6200;
+  border: none;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 20px;
+  text-align: center;
+  color: #ffffff;
+  z-index: 2;
+  align-self: ${(props: any) => props.align || ""};
+  justify-self: ${(props: any) => props.justifySelf || ""};
 
+  @media screen and (max-width: 735px) {
+    font-size: 1rem;
+  }
+`;
 const PrimaryButton = (props: Props) => {
   return (
-    <Button
-      style={{
-        padding: "17px 30px",
-        gap: "12px",
-        background: "#ff6200",
-        borderRadius: "50px",
-        border: "none",
-        fontWeight: "500",
-        fontSize: "1.2rem",
-        lineHeight: "20px",
-        textAlign: "center",
-        color: "#ffffff",
-        alignSelf: `${props.aligned}`,
-        justifySelf: `${props.justify}`,
-        zIndex: 2,
-      }}
-      p={"17px 30px"}
-      h={"40px"}
-    >
+    <PrimaryButtonContainer align={props.aligned} justifySelf={props.justify}>
       {props.text}
-    </Button>
+    </PrimaryButtonContainer>
   );
 };
 

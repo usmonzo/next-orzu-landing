@@ -70,7 +70,7 @@ export default function CreditForm() {
             историй
           </p>
         </div>
-        <PrimaryButton text={"Получить код"} />
+        <PrimaryButton text={"Получить код"} aligned={"center"} />
       </div>
       <Image src={tablet} alt={""} className={styles.tablet_icon} />
     </div>

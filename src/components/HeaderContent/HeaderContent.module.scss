@@ -12,12 +12,15 @@
 	// gap: 300px;
 
 	@media screen and (max-width: 890px) {
-		min-height: 550px;
+		min-height: 450px;
 		max-width: 558px;
 
 		.orange_box_text {
 			font-size: 2.8rem;
 		}
+	}
+	@media screen and (max-width: 450px) {
+		padding: 20px;
 	}
 }
 .header_main_content {
@@ -30,7 +33,9 @@
 	padding-left: 20px;
 	padding-right: 20px;
 
-
+	@media screen and (max-width: 500px) {
+	padding-top: 70px;
+	}
 }
 .main_content_horizontal {
 	display: flex;
@@ -45,7 +50,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: 50px;
+		gap: 20px;
 		max-width: 900px;
 	}
 }
@@ -75,7 +80,10 @@
 	padding: 40px;
 
 		.white_box_horizontal{
-display: flex; flex-direction: column; gap: 20px;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+
 		}
 	@media screen and (max-width: 1000px) {
 		gap: 0;
@@ -85,11 +93,10 @@ display: flex; flex-direction: column; gap: 20px;
 	@media screen and (max-width: 890px) {
 		justify-content: space-between;
 		max-width: 558px;
+		min-height: 450px;
 
 		gap: 0;
-		.white_box_horizontal{
-			max-height: 200px;
-		}
+
 
 		.white_box_headline {
 			font-size: 6rem;
@@ -98,6 +105,16 @@ display: flex; flex-direction: column; gap: 20px;
 		.white_box_paragraph {
 			margin-top:20px ;
 			margin-bottom: 30px;
+		}
+	}
+	@media screen and (max-width: 450px) {
+		padding: 20px;
+	}
+	@media screen and (max-width: 355px) {
+
+		.white_box_headline {
+			font-size: 4.5rem;
+			margin-bottom: 10px;
 		}
 	}
 }
@@ -121,6 +138,24 @@ display: flex; flex-direction: column; gap: 20px;
 	}
 	@media screen and (max-width: 890px) {
 		max-width: 558px;
+		width: 100%;
+		min-height: 450px;
+
+	}
+	@media screen and (max-width: 450px) {
+		padding: 20px;
+	}
+}
+.blue_box_text{
+	font-family: 'Golos',sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 7rem;
+	line-height: 100%;
+	@media screen and (max-width: 1077px){
+		font-size: 5rem;
+	}@media screen and (max-width: 890px){
+		font-size: 3.8rem;
 	}
 }
 .white_box_headline {
@@ -198,10 +233,12 @@ display: flex; flex-direction: column; gap: 20px;
 	overflow: hidden;
 
 	@media screen and (max-width: 890px) {
-		min-height: 565px;
+		min-height: 450px;
 		max-width: 558px;
-
 		height: 100%;
+	}
+	@media screen and (max-width: 450px) {
+		padding: 20px;
 	}
 }
 .white_box_timer_icon{

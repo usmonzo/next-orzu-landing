@@ -15,6 +15,20 @@
 
 	background: rgba(50, 52, 56, 0.6);
 	border-radius: 32px;
+
+	@media screen and (max-width:900px ) {
+		max-width: 229px;
+		max-height: 218px;
+		min-height: 218px;
+	}
+	@media screen and (max-width:500px ) {
+		max-width: 142px;
+		max-height: 132px;
+		min-height: 152px;
+		padding: 0;
+		justify-content: center;
+		align-items: center;
+	}
 }
 
 .merch-box-text {
@@ -26,4 +40,11 @@
 	text-align: center;
 	color: #ffffff;
 	opacity: 0.4;
+
+	@media screen and (max-width:900px ) {
+		font-size: 1.2rem;
+	}
+	@media screen and (max-width:500px ) {
+		font-size: 1rem;
+	}
 }

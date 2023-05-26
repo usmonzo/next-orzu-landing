@@ -6,7 +6,6 @@ import PrimaryButton from "../Buttons/PrimaryButton";
 
 import styles from "./Header.module.scss";
 import Image from "next/image";
-import Navbar from "../Navbar/Navbar";
 import HeaderContent from "../HeaderContent/HeaderContent";
 import { motion } from "framer-motion";
 
@@ -14,23 +13,34 @@ const Header = () => {
   return (
     <>
       <header className={styles.header_container}>
-        <motion.h1
-          className={styles.header_title}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.1 }}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+            padding: "0 20px",
+          }}
         >
-          Выгодный кредит для <br />
-          <span className={styles.text_gradient}>покупки бытовой техники</span>
-        </motion.h1>
-        <motion.p
-          className={styles.header_paragraph}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.1 }}
-        >
-          Получите одобрение в течении дня и получайте деньги, не посещая офис
-        </motion.p>
+          <motion.h1
+            className={styles.header_title}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
+            Выгодный кредит для <br />
+            <span className={styles.text_gradient}>
+              покупки бытовой техники
+            </span>
+          </motion.h1>
+          <motion.p
+            className={styles.header_paragraph}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
+            Получите одобрение в течении дня и получайте деньги, не посещая офис
+          </motion.p>
+        </div>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
