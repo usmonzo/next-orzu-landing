@@ -7,10 +7,10 @@ import { inspect } from "util";
 
 const Navbar = () => {
   return (
-    <motion.nav
+    <nav
       className="navbar-container"
-      initial={{ margin: -50, opacity: 0 }}
-      whileInView={{ margin: 0, opacity: 1 }}
+      // initial={{ margin: -50, opacity: 0 }}
+      // whileInView={{ margin: 0, opacity: 1 }}
       // transition={{ delay: 0.1 }}
     >
       <div className="navbar-content">
@@ -125,7 +125,7 @@ const Navbar = () => {
         </div>
         <button className="navbar-button">Отправить заявку</button>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 

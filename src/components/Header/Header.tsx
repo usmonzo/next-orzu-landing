@@ -21,38 +21,38 @@ const Header = () => {
             padding: "0 20px",
           }}
         >
-          <motion.h1
+          <h1
             className={styles.header_title}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.1 }}
+            // initial={{ opacity: 0 }}
+            // whileInView={{ opacity: 1 }}
+            // transition={{ delay: 0.1 }}
           >
             Выгодный кредит для <br />
             <span className={styles.text_gradient}>
               покупки бытовой техники
             </span>
-          </motion.h1>
-          <motion.p
+          </h1>
+          <p
             className={styles.header_paragraph}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.1 }}
+            // initial={{ opacity: 0 }}
+            // whileInView={{ opacity: 1 }}
+            // transition={{ delay: 0.1 }}
           >
             Получите одобрение в течении дня и получайте деньги, не посещая офис
-          </motion.p>
+          </p>
         </div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.1 }}
+        <div
+          // initial={{ opacity: 0 }}
+          // whileInView={{ opacity: 1 }}
+          // transition={{ delay: 0.1 }}
         >
           <PrimaryButton text="Получить кредит" />
-        </motion.div>
-        <motion.div
+        </div>
+        <div
           className={styles.header_icons_container}
-          initial={{ margin: 20, opacity: 0 }}
-          whileInView={{ margin: 0, opacity: 1 }}
-          transition={{ delay: 0.1 }}
+          // initial={{ margin: 20, opacity: 0 }}
+          // whileInView={{ margin: 0, opacity: 1 }}
+          // transition={{ delay: 0.1 }}
         >
           <Image
             src={white}
@@ -68,7 +68,7 @@ const Header = () => {
             height={800}
             className={styles.header_icons}
           />
-        </motion.div>
+        </div>
       </header>
       <section className={styles.header_content_section}>
         <div className={styles.header_content_color}>
