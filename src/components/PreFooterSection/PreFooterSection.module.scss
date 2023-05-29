@@ -49,11 +49,22 @@
 	padding: 40px;
 	@media screen and (max-width: 985px){
 		//height: 100%;
+		padding: 28px;
 		max-height: 487px;
 	}
 	@media screen and (max-width: 770px) {
 		height: 400px;
+		padding: 20px;
 	}
+}
+.blue_box_headline{
+	font-family: 'Golos',sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 5rem;
+	line-height: 100%;
+	@media screen and (max-width: 985px){
+		font-size: 2.8rem;}
 }
 .blue_box_headline{
 	font-family: 'Golos',sans-serif;

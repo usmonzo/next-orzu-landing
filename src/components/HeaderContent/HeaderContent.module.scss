@@ -15,9 +15,7 @@
 		min-height: 450px;
 		max-width: 558px;
 
-		.orange_box_text {
-			font-size: 2.8rem;
-		}
+
 	}
 	@media screen and (max-width: 450px) {
 		padding: 20px;
@@ -63,6 +61,13 @@
 
 	@media screen and (max-width: 1160px) {
 		font-size: 4.3rem;
+	}
+	@media screen and (max-width: 890px) {
+		font-size: 4rem;
+
+	}@media screen and (max-width: 390px) {
+		font-size: 3.5rem;
+
 	}
 }
 .white_box {

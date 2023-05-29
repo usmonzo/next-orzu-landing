@@ -1,25 +1,26 @@
-interface Props {
-	text: string;
-}
+import styled from "@emotion/styled";
 
+interface Props {
+  text: string;
+}
+export const BlackButtonContainer = styled.button`
+  align-self: flex-start;
+  padding: 15px 30px;
+  gap: 12px;
+  background: #16191d;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.3rem;
+  border: none;
+
+  @media screen and (max-width: 735px) {
+    font-size: 1rem;
+    padding: 15px 25px;
+  }
+`;
 const BlackButton = (props: Props) => {
-	return (
-		<button
-			style={{
-				alignSelf: 'flex-start',
-				padding: '15px 30px',
-				gap: '12px',
-				background: '#16191d',
-				borderRadius: ' 50px',
-				color: '#fff',
-				fontWeight: '500',
-				fontSize: '1.3rem',
-				border: 'none',
-			}}
-		>
-			{props.text}
-		</button>
-	);
+  return <BlackButtonContainer>{props.text}</BlackButtonContainer>;
 };
 
 export default BlackButton;
