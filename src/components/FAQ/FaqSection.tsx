@@ -9,6 +9,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import Header from "@/components/Header/Header";
+import { Footer } from "@/components/Footer/Footer";
 
 const FaqSection = () => {
   return (
@@ -201,6 +202,7 @@ const FaqSection = () => {
             <hr className={styles.accordion_hr} />
           </Accordion>
         </div>
+        <Footer />
       </div>
     </section>
   );
