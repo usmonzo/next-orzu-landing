@@ -23,7 +23,7 @@ const FaqSection = () => {
           >
             <AccordionItem className={styles.accordion_item}>
               <h2>
-                <AccordionButton>
+                <AccordionButton className={styles.accorion_button} p={0}>
                   <Box
                     as="span"
                     flex="1"
@@ -43,7 +43,7 @@ const FaqSection = () => {
             <hr className={styles.accordion_hr} />
             <AccordionItem className={styles.accordion_item}>
               <h2>
-                <AccordionButton>
+                <AccordionButton className={styles.accorion_button} p={0}>
                   <Box
                     as="span"
                     flex="1"
@@ -64,7 +64,7 @@ const FaqSection = () => {
             <hr className={styles.accordion_hr} />
             <AccordionItem className={styles.accordion_item}>
               <h2>
-                <AccordionButton>
+                <AccordionButton className={styles.accorion_button} p={0}>
                   <Box
                     as="span"
                     flex="1"
@@ -88,7 +88,7 @@ const FaqSection = () => {
             <hr className={styles.accordion_hr} />
             <AccordionItem className={styles.accordion_item}>
               <h2>
-                <AccordionButton>
+                <AccordionButton className={styles.accorion_button} p={0}>
                   <Box
                     as="span"
                     flex="1"
@@ -108,7 +108,7 @@ const FaqSection = () => {
             <hr className={styles.accordion_hr} />
             <AccordionItem className={styles.accordion_item}>
               <h2>
-                <AccordionButton>
+                <AccordionButton className={styles.accorion_button} p={0}>
                   <Box
                     as="span"
                     flex="1"
@@ -129,7 +129,7 @@ const FaqSection = () => {
             <hr className={styles.accordion_hr} />
             <AccordionItem className={styles.accordion_item}>
               <h2>
-                <AccordionButton>
+                <AccordionButton className={styles.accorion_button} p={0}>
                   <Box
                     as="span"
                     flex="1"
@@ -151,7 +151,7 @@ const FaqSection = () => {
             <hr className={styles.accordion_hr} />
             <AccordionItem className={styles.accordion_item}>
               <h2>
-                <AccordionButton>
+                <AccordionButton className={styles.accorion_button} p={0}>
                   <Box
                     as="span"
                     flex="1"

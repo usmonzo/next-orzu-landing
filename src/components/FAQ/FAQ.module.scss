@@ -6,6 +6,10 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 80px 20px;
+
+  @media screen and (max-width: 600px) {
+  padding: 30px 20px;
+  }
 }
 .faq_headline{
   font-style: normal;
@@ -21,9 +25,9 @@
     margin-bottom: 50px;
   }
   @media screen and (max-width: 600px) {
-    font-size: 2.3rem;
+    font-size: 2rem;
     text-align: left;
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
 }
 
@@ -32,7 +36,7 @@
   font-weight: 700;
   font-size: 2rem;
   line-height: 38px;
-  padding-bottom: 5px;
+  padding: 10px 0;
   color: #FFFFFF;
 
   @media screen and (max-width: 1077px) {
@@ -46,6 +50,7 @@
   line-height: 140%;
   color: #FFFFFF;
   text-align:unset ;
+  padding: 0;
 
   @media screen and (max-width: 1077px) {
     font-size: 1.1rem;
@@ -65,4 +70,8 @@
   background-color: #323438;
   height: 1px;
   border: none;
+}
+.accordion_button{
+  padding: 0 0!important;
+  margin: 0;
 }

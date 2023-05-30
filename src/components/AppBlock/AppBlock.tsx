@@ -12,7 +12,10 @@ export const AppBlock = () => {
     <div className={styles.app_color_block}>
       <div className={styles.app_text_container}>
         <Image src={elipsis} alt="elipse" className={styles.block_elipse_img} />
-        <h1 className={styles.app_headline}>Используйте Орзу в Хумо онлайн</h1>
+        <h1 className={styles.app_headline}>
+          Используйте Орзу в <br />
+          Хумо Онлайн
+        </h1>
         <article className={styles.block_btns}>
           <a href="https://play.google.com/store/apps/details?id=tj.humo.online">
             <Image
