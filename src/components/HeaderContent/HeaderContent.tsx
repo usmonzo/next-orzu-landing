@@ -28,7 +28,7 @@ export default function HeaderContent() {
             <PrimaryButton
               text="Подробнее"
               aligned="flex-start"
-              justify={"end"}
+              justify="end"
             />
           </div>
         </div>
@@ -44,6 +44,7 @@ export default function HeaderContent() {
                   marginBottom: "20px",
                   color: "#ff6200",
                 }}
+                className={styles.white_box_timer_span}
               >
                 Срок кредита
               </span>

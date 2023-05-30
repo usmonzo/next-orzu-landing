@@ -8,7 +8,6 @@
 	background: linear-gradient(180deg, #d4d4d4 0%, #ffffff 30.17%), #ffffff;
 }
 .header_title {
-	font-family: 'Golos', sans-serif;
 	line-height: 130%;
 	text-align: center;
 	color: #323438;
@@ -18,24 +17,23 @@
 
 	@media screen and (max-width: 735px) {
 		font-size: 3rem;
-		font-weight: 600;
+		font-weight: 800;
 		line-height: 100%;
 	}
 	@media screen and (max-width: 500px) {
 		font-size: 2.5rem;
-		font-weight: 600;
+		font-weight: 800;
 		line-height: 100%;
 	}
 }
 .header_paragraph {
-	font-family: 'Golos', sans-serif;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 1.5rem;
 	line-height: 130%;
 	text-align: center;
 	color: #323438;
-	max-width: 830px;
+	max-width: 700px;
 	width: 100%;
 
 	@media screen and (max-width: 890px) {

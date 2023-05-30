@@ -18,7 +18,7 @@ const FaqSection = () => {
         <div className={styles.faq_container}>
           <Accordion
             defaultIndex={[0]}
-            allowMultiple
+            // allowMultiple
             className={styles.accordion_main}
           >
             <AccordionItem className={styles.accordion_item}>

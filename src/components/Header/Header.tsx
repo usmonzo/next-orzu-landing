@@ -17,6 +17,7 @@ const Header = () => {
           style={{
             display: "flex",
             flexDirection: "column",
+            alignItems: "center",
             gap: "10px",
             padding: "0 20px",
           }}
@@ -42,9 +43,9 @@ const Header = () => {
           </p>
         </div>
         <div
-          // initial={{ opacity: 0 }}
-          // whileInView={{ opacity: 1 }}
-          // transition={{ delay: 0.1 }}
+        // initial={{ opacity: 0 }}
+        // whileInView={{ opacity: 1 }}
+        // transition={{ delay: 0.1 }}
         >
           <PrimaryButton text="Получить кредит" />
         </div>

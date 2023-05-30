@@ -12,7 +12,8 @@
 	// gap: 300px;
 
 	@media screen and (max-width: 890px) {
-		min-height: 450px;
+		min-height: 400px;
+
 		max-width: 558px;
 	}
 	@media screen and (max-width: 450px) {
@@ -67,8 +68,9 @@
 	@media screen and (max-width: 890px) {
 		font-size: 4rem;
 
-	}@media screen and (max-width: 390px) {
-		font-size: 3.5rem;
+	}
+	@media screen and (max-width: 400px) {
+		font-size: 3.1rem;
 
 	}
 }
@@ -100,8 +102,7 @@
 	@media screen and (max-width: 890px) {
 		justify-content: space-between;
 		max-width: 558px;
-		min-height: 450px;
-
+		min-height: 400px;
 		gap: 0;
 
 
@@ -116,6 +117,13 @@
 	}
 	@media screen and (max-width: 450px) {
 		padding: 20px;
+		.white_box_headline {
+			font-size: 6rem;
+			margin-bottom: 0;
+		}
+		.white_box_paragraph {
+			margin-top: 10px;
+		}
 	}
 	@media screen and (max-width: 355px) {
 
@@ -146,7 +154,7 @@
 	@media screen and (max-width: 890px) {
 		max-width: 558px;
 		width: 100%;
-		min-height: 450px;
+		min-height: 400px;
 
 	}
 	@media screen and (max-width: 450px) {
@@ -154,7 +162,6 @@
 	}
 }
 .blue_box_text{
-	font-family: 'Golos',sans-serif;
 	font-style: normal;
 	font-weight: 700;
 	font-size: 7rem;
@@ -247,19 +254,28 @@
 	}
 
 	@media screen and (max-width: 890px) {
-		min-height: 450px;
+		min-height: 400px;
 		max-width: 558px;
 		height: 100%;
 
 		.white_box_timer_headline{
 			font-size: 3.25rem;
-			font-weight: 700;
+			font-weight: 800;
 			color: #323438;
 			margin-top: 20px;
 		}
 	}
 	@media screen and (max-width: 450px) {
 		padding: 20px;
+		.white_box_timer_headline{
+			font-size: 2.5rem;
+			font-weight: 800;
+			color: #323438;
+			margin-top: 20px;
+		}
+		.white_box_timer_span{
+			font-weight: 700;
+		}
 	}
 }
 .white_box_timer_icon{
