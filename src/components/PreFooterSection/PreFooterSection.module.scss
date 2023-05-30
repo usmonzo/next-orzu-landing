@@ -11,6 +11,13 @@
 	min-height: 100vh;
 	background: #ffffff;
 	padding: 120px 0;
+
+	@media screen and (max-width: 1000px) {
+		padding: 80px 0;
+	}
+	@media screen and (max-width: 400px) {
+		padding: 60px 0;
+	}
 }
 .calc_headline {
 	font-style: normal;

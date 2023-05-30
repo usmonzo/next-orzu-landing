@@ -10,16 +10,20 @@
   margin: 80px 0;
   overflow: hidden;
 
+  @media screen and (max-width: 1077px) {
+    margin: 70px 0;
+  }
   @media screen and (max-width: 700px) {
-padding: 80px 100px;
+    padding: 80px 100px;
+    margin: 60px 0;
   }
   @media screen and (max-width: 600px) {
-padding: 60px 70px;
+    padding: 60px 70px;
+    margin: 50px 0;
   }
   @media screen and (max-width: 520px) {
-padding: 50px 24px;
+    padding: 50px 24px;
     border-radius: 32px;
-
   }
 }
 
@@ -54,6 +58,11 @@ padding: 50px 24px;
   gap: 12px;
   background: #D7DAE0;
   border-radius: 16px;
+  font-size: 1.2rem;
+
+  @media screen and (max-width: 890px) {
+  font-size: 1rem;
+  }
 }
 
 .inputs_horizontal_container{
@@ -93,4 +102,11 @@ padding: 50px 24px;
 
   width: 447px;
   height: 460px;
+  
+  @media screen and (max-width: 1077px) {
+    width: 354px;
+    height: 354px;
+    right: -1.83%;
+    top: 50%;
+  }
 }

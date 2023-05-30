@@ -21,7 +21,7 @@
 
 	@media screen and (max-width: 860px) {
 		font-size: 1.2rem;
-	//padding-top: 60px;
+		padding-top: 0;
 	}
 }
 
@@ -34,15 +34,17 @@
 	 //gap: 24px;
 	background: #f1f2f4;
 	//border-radius: 29px;
-	border-top-left-radius: 29px;
-	border-top-right-radius: 29px;
+	border-top-left-radius: 32px;
+	border-top-right-radius: 32px;
 	max-height: 180px;
 	// min-width: 620px;
 	// overflow-y: hidden;
 	width: 100%;
 
 	@media screen and (max-width: 860px) {
-		max-height: 170px;
+		max-height: 130px;
+		border-top-left-radius: 24px;
+		border-top-right-radius: 24px;
 	}
 }
 
@@ -85,6 +87,12 @@
 		// line-height: 100%;
 		letter-spacing: -0.04em;
 		color: #323438;
+		@media screen and (max-width: 400px) {
+			font-size: 1.7rem;
+		}
+		@media screen and (max-width: 360px) {
+			font-size: 1.5rem;
+		}
 	}
 	:last-of-type {
 		font-family: 'Golos', sans-serif;
@@ -94,6 +102,12 @@
 		line-height: 100%;
 		letter-spacing: -0.04em;
 		color: #9da1a9;
+		@media screen and (max-width: 400px) {
+			font-size: 1rem;
+		}
+		@media screen and (max-width: 360px) {
+			font-size: .9rem;
+		}
 	}
 
 	@media screen and (max-width: 1075px) {
@@ -103,6 +117,14 @@
 	@media screen and (max-width: 860px) {
 		max-width: 80px;
 		max-height: 110px;
+	}
+	@media screen and (max-width: 400px) {
+		max-width: 70px;
+		max-height: 75px;
+	}
+	@media screen and (max-width: 360px) {
+		max-width: 60px;
+		max-height: 65px;
 	}
 }
 
@@ -150,8 +172,7 @@
 	margin: 0;
 	padding: 0;
 	@media screen and (max-width: 860px) {
-		font-size: 2rem;
-		//padding-bottom: 30px;
+		font-size: 2.4rem;
 	}
 }
 
@@ -163,6 +184,10 @@
 	width: 100%;
 	padding: 40px;
 	margin-bottom: 24px;
+
+	@media screen and (max-width: 1075px) {
+	padding: 24px;
+	}
 }
 
 .sum_headline {
@@ -186,7 +211,24 @@
 		letter-spacing: -0.04em;
 		color: #323438;
 	}
-}
+
+	@media screen and (max-width: 1075px) {
+		span {
+			font-size: 1.5rem;
+		}
+		h1 {
+			font-size: 2.5rem;
+		}
+	}
+	@media screen and (max-width: 400px) {
+		span {
+			font-size: 1.3rem;
+		}
+		h1 {
+			font-size: 2.1rem;
+		}
+	}
+	}
 .sum_description {
 	display: flex;
 	justify-content: space-between;
@@ -214,5 +256,22 @@
 		line-height: 100%;
 		letter-spacing: -0.04em;
 		color: #323438;
+	}
+
+	@media screen and (max-width: 1075px) {
+		p {
+			font-size: 1.5rem;
+		}
+		h2 {
+			font-size: 2rem;
+		}
+	}
+	@media screen and (max-width: 400px) {
+		p {
+			font-size: 1rem;
+		}
+		h2 {
+			font-size: 1.7rem;
+		}
 	}
 }

@@ -29,8 +29,12 @@
 	padding-left: 20px;
 	padding-right: 20px;
 
+	@media screen and (max-width: 1077px) {
+		gap:80px;
+	}
 	@media screen and (max-width: 500px) {
 	padding-top: 70px;
+		gap: 60px;
 	}
 }
 .main_content_horizontal {

@@ -10,6 +10,13 @@ section {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	@media screen and (max-width: 1077px) {
+		padding: 40px 18px 70px 18px;
+	}
+	@media screen and (max-width: 500px) {
+		padding: 40px 18px 40px 18px;
+	}
 }
 .merch-headline {
 	font-family: 'Golos', sans-serif;
@@ -30,6 +37,9 @@ section {
 	@media screen and (max-width: 890px) {
 		font-size: 3.5rem;
 	}
+	@media screen and (max-width: 600px) {
+		font-size: 3rem;
+	}
 }
 .merch-paragraph {
 	font-family: 'Golos', sans-serif;
@@ -49,6 +59,9 @@ section {
 		font-weight: 500;
 		font-size: 1.25rem;
 	}
+	@media screen and (max-width: 600px) {
+		font-size: 1rem;
+	}
 }
 .merch-list {
 	display: flex;
@@ -61,21 +74,15 @@ section {
 .merch-icon {
 	 width: 75px;
 	 height: 87px;
-	//transform: scale(0.5);
 
-	@media screen and (max-width: 1077px) {
-		width: 75px;
-		height: 87px;
-		//transform: scale(0.4);
-	}
 	@media screen and (max-width: 900px) {
-		width: 55px;
-		height: 65px;
+		width: 60px;
+		height: 60px;
 		margin-bottom: 5px;
 		//transform: scale(0.4);
 	}
 	@media screen and (max-width: 500px) {
-		width: 35px;
-		height: 45px;
+		width: 40px;
+		height: 40px;
 	}
 }

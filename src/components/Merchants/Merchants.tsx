@@ -24,11 +24,7 @@ const Merchants = () => {
   return (
     <section>
       <div className="merch-container">
-        <div
-        // initial={{ margin: -50, opacity: 0 }}
-        // whileInView={{ margin: 50, opacity: 1 }}
-        // transition={{ delay: 0.2 }}
-        >
+        <div>
           <h1 className="merch-headline">Где же оплатить?</h1>
           <p className="merch-paragraph">
             Выберите категорию для того, чтобы посмотреть список магазинов

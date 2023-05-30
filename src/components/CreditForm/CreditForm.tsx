@@ -13,7 +13,7 @@ const inputProps = {
   _hover: {},
   border: {},
   color: "#323438",
-  fontSize: "1.2rem",
+  // fontSize: "1.2rem",
   fontWeight: "800",
   size: "lg",
   focusBorderColor: "transparent",
