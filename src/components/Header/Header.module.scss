@@ -77,6 +77,12 @@
 .header_content_section {
 	background: #ffffff;
 	padding-bottom: 150px;
+@media screen and (max-width: 1074px){
+	padding-bottom: 80px;
+}
+	@media screen and (max-width: 540px){
+	padding-bottom: 60px;
+}
 }
 .header_content_color {
 	max-width: 1200px;

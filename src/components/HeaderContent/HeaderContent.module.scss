@@ -14,8 +14,6 @@
 	@media screen and (max-width: 890px) {
 		min-height: 450px;
 		max-width: 558px;
-
-
 	}
 	@media screen and (max-width: 450px) {
 		padding: 20px;
@@ -237,10 +235,24 @@
 	padding: 40px;
 	overflow: hidden;
 
+	.white_box_timer_headline{
+		font-size: 4.25rem;
+		font-weight: 700;
+		color: #323438;
+		margin-top: 20px;
+	}
+
 	@media screen and (max-width: 890px) {
 		min-height: 450px;
 		max-width: 558px;
 		height: 100%;
+
+		.white_box_timer_headline{
+			font-size: 3.25rem;
+			font-weight: 700;
+			color: #323438;
+			margin-top: 20px;
+		}
 	}
 	@media screen and (max-width: 450px) {
 		padding: 20px;

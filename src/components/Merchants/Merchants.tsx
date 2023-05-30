@@ -2,21 +2,21 @@
 import "./Merchants.scss";
 import WhiteButton from "../Buttons/WhiteButton";
 import MerchBox from "../UI/MerchBox";
-import tech from "../../../public/assets/Vector.png";
-import phone from "../../../public/assets/Vector1.png";
-import clothes from "../../../public/assets/Vector2.png";
-import couch from "../../../public/assets/Vector3.png";
-import comp from "../../../public/assets/Vector4.png";
-import ring from "../../../public/assets/Vector5.png";
-import food from "../../../public/assets/Vector6.png";
-import parfum from "../../../public/assets/Vector7.png";
-import halmet from "../../../public/assets/Vector8.png";
-import tea from "../../../public/assets/Vector9.png";
-import gift from "../../../public/assets/Vector10.png";
-import medicine from "../../../public/assets/Vector11.png";
-import azs from "../../../public/assets/Vector12.png";
-import education from "../../../public/assets/Vector13.png";
-import child from "../../../public/assets/Vector14.png";
+import tech from "../../../public/assets/printer.png";
+import phone from "../../../public/assets/mobile.png";
+import clothes from "../../../public/assets/Group.png";
+import couch from "../../../public/assets/mdi_sofa-single.png";
+import comp from "../../../public/assets/monitor.png";
+import ring from "../../../public/assets/icon-park-solid_diamond-ring.png";
+import food from "../../../public/assets/fluent_food-apple-24-filled.png";
+import parfum from "../../../public/assets/solar_perfume-bold.png";
+import halmet from "../../../public/assets/mdi_helmet.png";
+import tea from "../../../public/assets/coffee.png";
+import gift from "../../../public/assets/gift.png";
+import medicine from "../../../public/assets/solar_document-medicine-bold.png";
+import azs from "../../../public/assets/gas-station.png";
+import education from "../../../public/assets/book.png";
+import child from "../../../public/assets/mdi_children-toy.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -25,9 +25,9 @@ const Merchants = () => {
     <section>
       <div className="merch-container">
         <div
-          // initial={{ margin: -50, opacity: 0 }}
-          // whileInView={{ margin: 50, opacity: 1 }}
-          // transition={{ delay: 0.2 }}
+        // initial={{ margin: -50, opacity: 0 }}
+        // whileInView={{ margin: 50, opacity: 1 }}
+        // transition={{ delay: 0.2 }}
         >
           <h1 className="merch-headline">Где же оплатить?</h1>
           <p className="merch-paragraph">

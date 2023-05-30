@@ -5,6 +5,7 @@ import Image from "next/image";
 import bank from "../../../public/assets/bank.png";
 import WhiteButton from "@/components/Buttons/WhiteButton";
 import CreditForm from "@/components/CreditForm/CreditForm";
+import { AppBlock } from "@/components/AppBlock/AppBlock";
 
 export default function PreFooterSection() {
   return (
@@ -39,6 +40,7 @@ export default function PreFooterSection() {
           </div>
         </div>
         <CreditForm />
+        <AppBlock />
       </div>
     </section>
   );

@@ -47,14 +47,7 @@ export default function HeaderContent() {
               >
                 Срок кредита
               </span>
-              <p
-                style={{
-                  fontSize: "52px",
-                  fontWeight: 700,
-                  color: "#323438",
-                  marginTop: "20px",
-                }}
-              >
+              <p className={styles.white_box_timer_headline}>
                 От 15 дней <br /> до 3 лет
               </p>
             </div>
