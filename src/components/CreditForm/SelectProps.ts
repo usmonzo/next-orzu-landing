@@ -1,5 +1,11 @@
 import chroma from "chroma-js";
 
+interface ISelectProps {
+  data: boolean;
+  isDisabled: boolean;
+  isFocused: boolean;
+  isSelected: boolean;
+}
 export const customSelectStyles = {
   control: (provided: any, state: any) => ({
     ...provided,
@@ -19,12 +25,20 @@ export const customSelectStyles = {
       fontSize: "1rem",
     },
   }),
-  option: (styles: any, { data, isDisabled, isFocused, isSelected }) => {
+  option: (styles: any, props: ISelectProps) => {
     const color = chroma("#D7DAE0");
     return {
       ...styles,
-      backgroundColor: isSelected ? "#16191d" : isFocused ? "#e2e4e9" : "",
-      color: isSelected ? "#ffffff" : isFocused ? "#090909" : "#8B97A7",
+      backgroundColor: props.isSelected
+        ? "#16191d"
+        : props.isFocused
+        ? "#e2e4e9"
+        : "",
+      color: props.isSelected
+        ? "#ffffff"
+        : props.isFocused
+        ? "#090909"
+        : "#8B97A7",
       fontWeight: "800",
       // cursor: isDisabled ? "not-allowed" : "default",
       height: "50px",
@@ -34,8 +48,8 @@ export const customSelectStyles = {
       borderRadius: "12px",
 
       "&:hover": {
-        background: !isSelected ? "#e2e4e9" : "",
-        color: !isSelected ? "#090909" : "",
+        background: !props.isSelected ? "#e2e4e9" : "",
+        color: !props.isSelected ? "#090909" : "",
       },
       // ":active": {
       //   ...styles[":active"],
@@ -73,12 +87,20 @@ export const secondSelectStyle = {
       fontSize: "1rem",
     },
   }),
-  option: (styles: any, { data, isDisabled, isFocused, isSelected }) => {
+  option: (styles: any, props: ISelectProps) => {
     const color = chroma("#D7DAE0");
     return {
       ...styles,
-      backgroundColor: isSelected ? "#16191d" : isFocused ? "#e2e4e9" : "",
-      color: isSelected ? "#ffffff" : isFocused ? "#090909" : "#8B97A7",
+      backgroundColor: props.isSelected
+        ? "#16191d"
+        : props.isFocused
+        ? "#e2e4e9"
+        : "",
+      color: props.isSelected
+        ? "#ffffff"
+        : props.isFocused
+        ? "#090909"
+        : "#8B97A7",
       fontWeight: "800",
       // cursor: isDisabled ? "not-allowed" : "default",
       height: "50px",
@@ -88,8 +110,8 @@ export const secondSelectStyle = {
       borderRadius: "12px",
 
       "&:hover": {
-        background: !isSelected ? "#e2e4e9" : "",
-        color: !isSelected ? "#090909" : "",
+        background: !props.isSelected ? "#e2e4e9" : "",
+        color: !props.isSelected ? "#090909" : "",
       },
 
       ":active": {
