@@ -34,7 +34,7 @@ export default function CreditForm() {
   const [citiesList, setCitiesList] = useState<any[]>([]);
   const [projectTypeList, setProjectTypeList] = useState<any[]>([]);
   const [selectedProjectType, setSelectedProjectType] = useState("");
-
+  const [body, setBody] = useState<any>();
   const citiesListData = [
     { label: "Душанбе", value: 4 },
     { label: "Хучанд", value: 1 },
@@ -63,11 +63,10 @@ export default function CreditForm() {
 
   useEffect(() => {
     setCitiesList(citiesListData);
-  }, []);
-  useEffect(() => {
     setProjectTypeList(projectType);
+    setBody(document.getElementById("form"));
   }, []);
-  const body = document.getElementById("form");
+
   return (
     <>
       <section id="form" className={styles.form_section}>
