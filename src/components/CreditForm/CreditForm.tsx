@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Checkbox, Input } from "@chakra-ui/react";
+import { background, Checkbox, Input } from "@chakra-ui/react";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import styles from "./CreditForm.module.scss";
 import tablet from "../../../public/assets/tablet.png";
@@ -124,15 +124,17 @@ export default function CreditForm() {
                 className={styles.rules_checkbox}
                 _active={{}}
                 size={"lg"}
-                backgroundColor={"#D7DAE0"}
+                background={"#D7DAE0"}
                 border={{}}
                 outline={{}}
+                _checked={{}}
+                iconColor={"#090909"}
                 borderColor={"transparent"}
-                colorScheme={"red"}
+                colorScheme={"black"}
                 p={0}
                 m={0}
-                w={"24px"}
-                h={"22px"}
+                w={"30px"}
+                h={"20px"}
                 borderRadius={"6px"}
               />
               <p>
