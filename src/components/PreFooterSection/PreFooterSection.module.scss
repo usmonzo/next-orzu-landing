@@ -71,7 +71,7 @@
 	font-weight: 700;
 	font-size: 5rem;
 	line-height: 100%;
-	color: #FFFFFF;
+	color: #fff;
 	@media screen and (max-width: 1050px) {
 		font-size: 4rem;
 	}
@@ -94,6 +94,7 @@
 	overflow: hidden;
 	display: flex;
 	align-items: flex-end;
+	color: #FFFFFF;
 
 	@media screen and (max-width: 985px){
 		//height: 100%;

@@ -6,6 +6,7 @@ interface Props {
   aligned?: any;
   justify?: any;
   onClick?: Function;
+  zIndex?: number;
 }
 interface IComponent {
   justifySelf: any;
@@ -22,7 +23,7 @@ export const PrimaryButtonContainer = styled.button<IComponent>`
   line-height: 20px;
   text-align: center;
   color: #ffffff;
-  z-index: 2;
+  z-index: ${(props: any) => props.zIndex || 0};
   align-self: ${(props: any) => props.align || ""};
   justify-self: ${(props: any) => props.justifySelf || ""};
 
