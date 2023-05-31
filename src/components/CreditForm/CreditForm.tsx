@@ -30,7 +30,7 @@ const inputProps = {
 };
 
 export default function CreditForm() {
-  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedCity, setSelectedCity] = useState<string>("");
   const [citiesList, setCitiesList] = useState<any[]>([]);
   const [projectTypeList, setProjectTypeList] = useState<any[]>([]);
   const [selectedProjectType, setSelectedProjectType] = useState("");
@@ -89,7 +89,6 @@ export default function CreditForm() {
                 <Select
                   menuPortalTarget={body}
                   openMenuOnClick={true}
-                  value={selectedCity}
                   options={citiesList}
                   onChange={changeCity}
                   placeholder={"Город"}
@@ -108,7 +107,6 @@ export default function CreditForm() {
                 isSearchable={false}
                 placeholder="Тип заявки"
                 openMenuOnClick={true}
-                value={selectedCity}
                 options={projectTypeList}
                 onChange={changeCity}
                 noOptionsMessage={() => "Нет такого города :("}
