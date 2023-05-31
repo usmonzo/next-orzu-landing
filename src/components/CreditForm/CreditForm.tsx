@@ -67,7 +67,7 @@ export default function CreditForm() {
   useEffect(() => {
     setProjectTypeList(projectType);
   }, []);
-  const body = document.body;
+  const body = document.getElementById("form");
   return (
     <>
       <section id="form" className={styles.form_section}>

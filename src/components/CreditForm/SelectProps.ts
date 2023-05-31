@@ -1,3 +1,4 @@
+"use client";
 import chroma from "chroma-js";
 
 interface ISelectProps {
