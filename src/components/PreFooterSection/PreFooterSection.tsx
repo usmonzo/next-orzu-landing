@@ -1,6 +1,6 @@
 import Calculator from "../Calculator/Calculator";
 import styles from "./PreFooterSection.module.scss";
-import { HStack } from "@chakra-ui/react";
+import React from "react";
 import Image from "next/image";
 import bank from "../../../public/assets/bank.png";
 import WhiteButton from "@/components/Buttons/WhiteButton";
@@ -39,6 +39,7 @@ export default function PreFooterSection() {
             </div>
           </div>
         </div>
+
         <CreditForm />
         <AppBlock />
       </div>
