@@ -1,3 +1,4 @@
+"use client";
 import Calculator from "../Calculator/Calculator";
 import styles from "./PreFooterSection.module.scss";
 import React from "react";
