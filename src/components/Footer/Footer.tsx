@@ -5,6 +5,7 @@ import telegram from "../../../public/assets/telegram.svg";
 import vk from "../../../public/assets/vk.svg";
 import facebook from "../../../public/assets/facebook.svg";
 import Image from "next/image";
+import Link from "next/link";
 export const Footer = () => {
   return (
     <div className={styles.footer_container}>
@@ -15,22 +16,34 @@ export const Footer = () => {
           className={styles.footer_logo_icon}
         />
         <div className={styles.footer_social_networks}>
-          <Image
-            src={inst}
-            alt={"inst"}
-            className={styles.social_networks_icon}
-          />
-          <Image
-            src={telegram}
-            alt={"telegram"}
-            className={styles.social_networks_icon}
-          />
-          <Image src={vk} alt={"vk"} className={styles.social_networks_icon} />
-          <Image
-            src={facebook}
-            alt={"facebook"}
-            className={styles.social_networks_icon}
-          />
+          <a href="https://www.instagram.com/humo.tj/" target="_blank">
+            <Image
+              src={inst}
+              alt={"inst"}
+              className={styles.social_networks_icon}
+            />
+          </a>
+          <a href="https://t.me/humocallcenter" target="_blank">
+            <Image
+              src={telegram}
+              alt={"telegram"}
+              className={styles.social_networks_icon}
+            />
+          </a>
+          <a href="https://vk.com/humotj" target="_blank">
+            <Image
+              src={vk}
+              alt={"vk"}
+              className={styles.social_networks_icon}
+            />
+          </a>
+          <a href="https://facebook.com/mdohumo" target="_blank">
+            <Image
+              src={facebook}
+              alt={"facebook"}
+              className={styles.social_networks_icon}
+            />
+          </a>
         </div>
       </div>
       <hr className={styles.footer_hr} />
@@ -40,12 +53,11 @@ export const Footer = () => {
           <p>Горячая линия Хумо</p>
         </div>
         <div className={styles.footer_links_content}>
-          <a>Хумо</a>
-          <a>Хумо Онлайн</a>
-          <a>Хумо переводы</a>
-          <a>Депозит — Сарчашма</a>
-          <a>Карты Visa</a>
-          <a>Часто задаваемые вопросы</a>
+          <a href="https://humo.tj/ru/"> Хумо</a>
+          <a href="https://online.humo.tj/">Хумо Онлайн</a>
+          <a href="https://transfer.humo.tj/">Хумо переводы</a>
+          <a href="https://deposit.humo.tj/">Депозит — Сарчашма</a>
+          <a href="https://visa.humo.tj/">Карты Visa</a>
         </div>
       </div>
       <div className={styles.footer_description_container}>
