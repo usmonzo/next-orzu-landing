@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { background, Checkbox, Input } from "@chakra-ui/react";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import styles from "./CreditForm.module.scss";
@@ -46,9 +46,9 @@ export default function CreditForm() {
     { label: "Нурек", value: 8 },
   ];
   const projectType = [
-    { label: "Оформление орзу", value: 1 },
-    { label: "Повысить лимит орзу", value: 2 },
-    { label: "Оформление стандарт/проект кредита ", value: 3 },
+    { label: "Оформление орзу", value: 1, id: 1 },
+    { label: "Повысить лимит орзу", value: 2, id: 2 },
+    { label: "Оформление стандарт/проект кредита ", value: 3, id: 3 },
   ];
   const changeCity = (event: any) => {
     if (event) {
@@ -86,6 +86,7 @@ export default function CreditForm() {
                   placeholder="Номер телефона"
                 />
                 <Select
+                  instanceId={useId()}
                   isSearchable={false}
                   menuPortalTarget={body}
                   openMenuOnClick={true}
@@ -104,6 +105,7 @@ export default function CreditForm() {
                 />
               </div>
               <Select
+                instanceId={useId()}
                 isSearchable={false}
                 placeholder="Тип заявки"
                 openMenuOnClick={true}

@@ -75,9 +75,10 @@
 	max-width: 63px;
 	max-height: 286px;
 	height: 100%;
-	color: #323438;
 	background: #f1f2f4;
 	border-radius: 12px;
+
+
 
 	:first-of-type {
 		// font-family: 'Golos', sans-serif;
@@ -87,6 +88,9 @@
 		// line-height: 100%;
 		letter-spacing: -0.04em;
 		color: #323438;
+		:checked{
+			color: #FFFFFF;
+		}
 		@media screen and (max-width: 400px) {
 			font-size: 1.7rem;
 		}
