@@ -1,6 +1,4 @@
 "use client";
-import Image from "next/image";
-import logo from "../../../public/assets/Logo.png";
 import "./Navbar.scss";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -9,8 +7,8 @@ const Navbar = () => {
   return (
     <motion.nav
       className="navbar-container"
-      initial={{ margin: -50, opacity: 0 }}
-      whileInView={{ margin: 0, opacity: 1 }}
+      initial={{ marginTop: '-50px',marginBottom:'20px', opacity: 0 }}
+      whileInView={{ marginTop: 0,marginBottom:0, opacity: 1 }}
       transition={{ delay: 0.1 }}
     >
       <div className="navbar-content">

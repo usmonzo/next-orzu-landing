@@ -15,17 +15,7 @@ import {
 } from "@chakra-ui/react";
 import styles from "./Calculator.module.scss";
 import { useCallback, useState } from "react";
-
-const dateArray = [
-  { count: 15, word: "дней", percent: 2 },
-  { count: 1, word: "месяц", percent: 4 },
-  { count: 2, word: "месяцa", percent: 6 },
-  { count: 3, word: "месяцa", percent: 8 },
-  { count: 6, word: "месяцев", percent: 13 },
-  { count: 9, word: "месяцев", percent: 18 },
-  { count: 12, word: "месяцев", percent: 23 },
-  { count: 18, word: "месяцев", percent: 34 },
-];
+import { currencyArray, dateArray } from "@/data/_data";
 
 interface IRadioProps {
   isChecked: boolean;
@@ -196,21 +186,10 @@ export default function Calculator() {
               className={styles.money_limits_container}
               style={{ color: "black" }}
             >
-              <p onClick={() => setCashInput(50)} style={{ cursor: "pointer" }}>
-                50 см.
-              </p>
-              <p
-                onClick={() => setCashInput(25000)}
-                style={{ cursor: "pointer" }}
-              >
-                25000 см.
-              </p>
-              <p
-                onClick={() => setCashInput(50000)}
-                style={{ cursor: "pointer" }}
-              >
-                50000 см.
-              </p>
+              {currencyArray.map((money,idx)=>(
+                <p onClick={()=>setCashInput(money.count)} style={{ cursor: "pointer" }} key={idx}>
+                  {money.count+money.currency}</p>
+              ))}
             </div>
           </div>
         </>
