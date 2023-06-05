@@ -25,60 +25,13 @@ interface IRadioProps {
   onChange: () => void;
   value: string;
 }
-//function RadioCard(props: IRadioProps) {
-//  const [defaultCheck, setDefaultCheck] = useState(false);
-//  const { getInputProps, getRadioProps } = useRadio(props);
-//
-//  const input = getInputProps();
-//  const checkbox = getRadioProps();
-//
-//  return (
-//    <Box as="label" >
-//      <input {...input} />
-//      <Box
-//        className={styles.month_container}
-//        cursor="pointer"
-//        borderWidth="1px"
-//        borderRadius="md"
-//        boxShadow="md"
-//        {...checkbox}
-//
-//        _checked={{
-//          color: "#ffffff",
-//          background: "#f1f2f4",
-//        }}
-//        _focus={{
-//          boxShadow: "none",
-//          bg: "#323438",
-//          color: "#ffffff",
-//          p: {
-//            color: "white",
-//          },
-//        }}
-//        px={5}
-//        py={3}
-//      >
-//        {props.children}
-//      </Box>
-//    </Box>
-//  );
-//}
 
 export default function Calculator() {
   const [cashInput, setCashInput] = useState(1000);
   const [percent, setPercent] = useState(2);
   const [term, setTerm] = useState(1);
   const [termWord, setTermWord] = useState("дней");
-
-  //  const { getRootProps, getRadioProps } = useRadioGroup({
-  //    name: "term",
-  //    defaultValue: "15",
-  //    onChange: ()=>console.log(1),
-  //  });
-
-  //  const group = getRootProps({
-  ////    onChange:(e)=>console.log(e),
-  //  });
+  const [active, setActive] = useState(0);
 
   const handleSliderChange = useCallback(
     (e: any) => {
@@ -203,29 +156,49 @@ export default function Calculator() {
         </>
         <div className={styles.monthes}>
           <div className={styles.month_horizontal}>
-            <label className={styles.input_label}>Срок кредита</label>
-
-            {/*<HStack {...group} className={styles.monthes_horizontal} defaultValue={'1'}>*/}
-            {/*  {dateArray.map((date, idx) => {*/}
-            {/*    const radio = getRadioProps( {date} );*/}
-            {/*    return (*/}
-            {/*      <RadioCard*/}
-            {/*        key={idx}*/}
-            {/*        value={date.value}*/}
-            {/*        {...radio}*/}
-            {/*        onChange={() =>*/}
-            {/*          date.count === 15*/}
-            {/*            ? radioHandleChange(date.percent, 1, date.word)*/}
-            {/*            : radioHandleChange(date.percent, date.count, date.word)*/}
-            {/*        }*/}
-            {/*      >*/}
-            {/*        <p>{date.count}</p>*/}
-            {/*        <p>{date.percent < 3 ? "дней" : "мес."}</p>*/}
-            {/*      </RadioCard>*/}
-            {/*    );*/}
-            {/*  })}*/}
-            {/*</HStack>*/}
-            <Example radioHandleChange={radioHandleChange} />
+            <label className={styles.input_label} style={{ paddingTop: "0" }}>
+              Срок кредита
+            </label>
+            <div className={styles.monthes_horizontal} defaultValue={"1"}>
+              {dateArray.map((date, idx) =>
+                idx === active ? (
+                  <div
+                    key={idx}
+                    className={styles.month_container_active}
+                    onClick={() => {
+                      date.count === 15
+                        ? radioHandleChange(date.percent, 1, date.word)
+                        : radioHandleChange(
+                            date.percent,
+                            date.count,
+                            date.word
+                          );
+                    }}
+                  >
+                    <p>{date.count}</p>
+                    <p>{date.percent < 3 ? "дней" : "мес."}</p>
+                  </div>
+                ) : (
+                  <div
+                    key={idx}
+                    className={styles.month_container}
+                    onClick={() => {
+                      date.count === 15
+                        ? radioHandleChange(date.percent, 1, date.word)
+                        : radioHandleChange(
+                            date.percent,
+                            date.count,
+                            date.word
+                          );
+                      setActive(idx);
+                    }}
+                  >
+                    <p>{date.count}</p>
+                    <p>{date.percent < 3 ? "дней" : "мес."}</p>
+                  </div>
+                )
+              )}
+            </div>
           </div>
         </div>
       </div>

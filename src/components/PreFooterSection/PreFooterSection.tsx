@@ -3,7 +3,7 @@ import Calculator from "../Calculator/Calculator";
 import styles from "./PreFooterSection.module.scss";
 import React from "react";
 import Image from "next/image";
-import bank from "../../../public/assets/bank.png";
+import bank from "../../../public/assets/bank.svg";
 import WhiteButton from "@/components/Buttons/WhiteButton";
 import CreditForm from "@/components/CreditForm/CreditForm";
 import { AppBlock } from "@/components/AppBlock/AppBlock";
@@ -22,16 +22,14 @@ export default function PreFooterSection() {
             <WhiteButton text={"Подробнее"} />
           </div>
           <div className={styles.black_box}>
-            <Image
-              src={bank}
-              alt={""}
-              width={573.11}
-              height={538}
-              style={{ opacity: "0.2" }}
-              className={styles.bank_icon}
-            />
+            <Image src={bank} alt={""} className={styles.bank_icon} />
             <div
-              style={{ display: "flex", flexDirection: "column", gap: "30px" }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "30px",
+                zIndex: 2,
+              }}
             >
               <h1 className={styles.black_box_headline}>
                 Приобретайте товары в рассрочку без переплаты

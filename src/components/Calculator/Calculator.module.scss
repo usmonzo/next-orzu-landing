@@ -18,6 +18,7 @@
 	line-height: 120%;
 	color: #323438;
 	padding-top: 10px;
+	justify-self: flex-start;
 
 	@media screen and (max-width: 860px) {
 		font-size: 1.2rem;
@@ -57,31 +58,31 @@
 .month_horizontal {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	// gap: 20px;
+	gap: 10px;
+	//justify-content: space-between;
+	width: 100%;
+	//height: 100%;
 	@media screen and (max-width: 1105px) {
 		width: 100%;
 		gap: 30px;
 	}
 }
 .month_container {
+	cursor: pointer;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 24px;
-	gap: 10px;
-
-	max-width: 63px;
-	max-height: 286px;
-	height: 100%;
+	gap: 5px;
+	max-width: 11%;
+	width: 100%;
+	//min-height: 286px;
+	//height: 100%;
 	background: #f1f2f4;
 	border-radius: 12px;
 
-
-
 	:first-of-type {
-		// font-family: 'Golos', sans-serif;
 		font-style: normal;
 		font-weight: 900;
 		font-size: 2rem;
@@ -113,23 +114,83 @@
 			font-size: .8rem;
 		}
 	}
+	@media screen and (max-width: 660px) {
+		max-width: 22%;
+	}
+	@media screen and (max-width: 390px) {
+		padding: 12px;
+	}
+}
+.month_container_active {
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 24px;
+	gap: 5px;
+	max-width: 11%;
+	width: 100%;
+	//min-height: 286px;
+	//height: 100%;
+	background: #030303;
+	color: #FFFFFF;
+	border-radius: 12px;
+	transition: 0.3s all  ease;
 
-	@media screen and (max-width: 1075px) {
-		width: 100%;
-		max-width: 80px;
+	:first-of-type {
+		font-style: normal;
+		font-weight: 900;
+		font-size: 2rem;
+		// line-height: 100%;
+		letter-spacing: -0.04em;
+		color: #FFFFFF;
+		@media screen and (max-width: 440px) {
+			font-size: 1.7rem;
+		}
+		@media screen and (max-width: 390px) {
+			font-size: 1.2rem;
+		@media screen and (max-width: 360px) {
+			font-size: 1.2rem;
+		}
 	}
-	@media screen and (max-width: 860px) {
-		max-width: 80px;
-		max-height: 110px;
 	}
-	@media screen and (max-width: 440px) {
-		max-width: 70px;
-		max-height: 75px;
-		padding: 20px;
+	:last-of-type {
+		font-family: 'Golos', sans-serif;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 1.4rem;
+		line-height: 100%;
+		letter-spacing: -0.04em;
+		color: #9da1a9;
+		@media screen and (max-width: 440px) {
+			font-size: 1rem;
+		}
+		@media screen and (max-width: 360px) {
+			font-size: .8rem;
+		}
 	}
-	@media screen and (max-width: 385px) {
-		max-width: 60px;
-		max-height: 65px;
+	@media screen and (max-width: 660px) {
+		max-width: 22%;
+	}
+	@media screen and (max-width: 390px) {
+		padding: 12px;
+	}
+}
+.monthes_horizontal {
+	width: 100%;
+	//height: auto;
+	display: flex;
+	//justify-content: space-between;
+	//background: #3c7dbe;
+	gap: calc(12%/7);
+	row-gap: 8px;
+	flex-wrap: wrap;
+
+	@media screen and (max-width: 660px) {
+	gap: 4%;
+		row-gap: 8px;
+
 	}
 }
 
@@ -152,24 +213,7 @@
 		color: #9da1a9;
 	}
 }
-.monthes_horizontal {
-	width: 100%;
-	height: auto;
-	display: inline-flex;
-	flex-direction: row;
-	gap: 12px;
-	
-	@media screen and (max-width: 1105px) {
-		justify-content: center;
-		width: 100%;
-		// gap: 30px;
-	}
-	@media screen and (max-width: 860px) {
-		flex-wrap: wrap;
-		justify-content: center;
-	}
 
-}
 .money_input {
 	margin: 0;
 	padding: 0;

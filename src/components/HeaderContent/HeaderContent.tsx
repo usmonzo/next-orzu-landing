@@ -2,7 +2,7 @@ import BlackButton from "../Buttons/BlackButton";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import styles from "./HeaderContent.module.scss";
 import Image from "next/image";
-import timer from "../../../public/assets/timer.png";
+import timer from "../../../public/assets/timer.svg";
 
 export default function HeaderContent() {
   return (
@@ -56,9 +56,6 @@ export default function HeaderContent() {
             <Image
               src={timer}
               alt={""}
-              width={573.11}
-              height={538}
-              style={{ opacity: "0.2" }}
               className={styles.white_box_timer_icon}
             />
           </div>

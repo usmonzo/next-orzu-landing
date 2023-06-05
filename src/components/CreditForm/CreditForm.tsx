@@ -3,7 +3,7 @@ import { useEffect, useId, useState } from "react";
 import { background, Checkbox, Input } from "@chakra-ui/react";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import styles from "./CreditForm.module.scss";
-import tablet from "../../../public/assets/tablet.png";
+import tablet from "../../../public/assets/tablet.svg";
 import Image from "next/image";
 import Select from "react-select";
 
@@ -15,8 +15,8 @@ import {
 const inputProps = {
   variant: "unstyled",
   _active: {},
-  _focus: { border: "none", outline: "none" },
-  _hover: { border: "1px solid #ff6200" },
+  _focus: { borderColor: "black", outline: "none" },
+  _hover: { border: "1px solid #030303" },
   color: "#323438",
   bg: "#D7DAE0",
   borderRadius: "16px",

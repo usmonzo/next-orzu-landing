@@ -236,7 +236,7 @@
 }
 .white_box_timer {
 	position: relative;
-	background-color: #f1f2f4;
+	background-color: #f1f2f3f4;
 	border-radius: 40px;
 	display: flex;
 	flex-direction: column;
@@ -281,9 +281,9 @@
 }
 .white_box_timer_icon{
 	position: absolute;
-	max-width: 371.36px;
+	//max-width: 371.36px;
 	//left: 0;
-	right: -10%;
+	right: -30%;
 	top: 45%;
 	bottom: 0;
 }

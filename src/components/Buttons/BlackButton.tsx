@@ -5,13 +5,13 @@ interface Props {
 }
 export const BlackButtonContainer = styled.button`
   align-self: flex-start;
-  padding: 15px 30px;
+  padding: 17px 30px;
   gap: 12px;
   background: #16191d;
   border-radius: 50px;
   color: #fff;
   font-weight: 500;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   border: none;
 
   @media screen and (max-width: 735px) {

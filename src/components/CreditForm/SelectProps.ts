@@ -11,6 +11,7 @@ interface ISelectProps {
 export const customSelectStyles = {
   control: (provided: any, state: any) => ({
     ...provided,
+    height: "66px",
     cursor: "pointer",
     width: "100%",
     minWidth: "250px",
@@ -27,7 +28,7 @@ export const customSelectStyles = {
     //   color: "red",
     // },
     "&:hover": {
-      border: "1px solid #ff6200",
+      border: "1px solid #030303",
     },
     "@media screen and (max-width: 890px)": {
       fontSize: "1rem",
@@ -87,8 +88,8 @@ export const customSelectStyles = {
     ...base,
     height: "100%",
     maxHeight: "410px",
-    "-ms-overflow-style": "none",
-    scrollbarWidth: "none",
+    // "-ms-overflow-style": "none",
+    // scrollbarWidth: "none",
     "::-webkit-scrollbar": {
       display: "none",
     },
@@ -114,6 +115,7 @@ export const secondSelectStyle = {
     ...provided,
     cursor: "pointer",
     width: "100%",
+    height: "66px",
     minWidth: "250px",
     border: "1px solid #E0E0E0",
     padding: "13px 18px",
@@ -124,7 +126,7 @@ export const secondSelectStyle = {
     zIndex: 3,
     "&:hover": {
       // border: "1px solid black",
-      border: "1px solid #ff6200",
+      border: "1px solid #030303",
     },
     "@media screen and (max-width: 890px)": {
       fontSize: "1rem",
