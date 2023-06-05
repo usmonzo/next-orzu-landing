@@ -18,8 +18,8 @@ const FaqSection = () => {
         <h1 className={styles.faq_headline}>Часто задаваемые вопросы</h1>
         <div className={styles.faq_container}>
           <Accordion
-            defaultIndex={[0]}
-            // allowMultiple
+            // defaultIndex={[0]}
+            allowToggle
             className={styles.accordion_main}
           >
             <AccordionItem className={styles.accordion_item}>

@@ -40,7 +40,6 @@ export default function PreFooterSection() {
             </div>
           </div>
         </div>
-
         <CreditForm />
         <AppBlock />
       </div>

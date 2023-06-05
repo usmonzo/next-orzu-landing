@@ -16,6 +16,8 @@ import {
 import styles from "./Calculator.module.scss";
 import { useCallback, useState } from "react";
 import { currencyArray, dateArray } from "@/data/_data";
+import RadioCard from "@/components/Calculator/RadioCard";
+import Example from "@/components/Calculator/RadioCard";
 
 interface IRadioProps {
   isChecked: boolean;
@@ -23,44 +25,44 @@ interface IRadioProps {
   onChange: () => void;
   value: string;
 }
-function RadioCard(props: IRadioProps) {
-  const [defaultCheck, setDefaultCheck] = useState(false);
-  const { getInputProps, getRadioProps } = useRadio(props);
-
-  const input = getInputProps();
-  const checkbox = getRadioProps();
-
-  return (
-    <Box as="label">
-      <input {...input} />
-      <Box
-        className={styles.month_container}
-        cursor="pointer"
-        borderWidth="1px"
-        borderRadius="md"
-        boxShadow="md"
-        {...checkbox}
-        // color="black"
-        _checked={{
-          color: "#ffffff",
-          background: "#f1f2f4",
-        }}
-        _focus={{
-          boxShadow: "none",
-          bg: "#323438",
-          color: "#ffffff",
-          p: {
-            color: "white",
-          },
-        }}
-        px={5}
-        py={3}
-      >
-        {props.children}
-      </Box>
-    </Box>
-  );
-}
+//function RadioCard(props: IRadioProps) {
+//  const [defaultCheck, setDefaultCheck] = useState(false);
+//  const { getInputProps, getRadioProps } = useRadio(props);
+//
+//  const input = getInputProps();
+//  const checkbox = getRadioProps();
+//
+//  return (
+//    <Box as="label" >
+//      <input {...input} />
+//      <Box
+//        className={styles.month_container}
+//        cursor="pointer"
+//        borderWidth="1px"
+//        borderRadius="md"
+//        boxShadow="md"
+//        {...checkbox}
+//
+//        _checked={{
+//          color: "#ffffff",
+//          background: "#f1f2f4",
+//        }}
+//        _focus={{
+//          boxShadow: "none",
+//          bg: "#323438",
+//          color: "#ffffff",
+//          p: {
+//            color: "white",
+//          },
+//        }}
+//        px={5}
+//        py={3}
+//      >
+//        {props.children}
+//      </Box>
+//    </Box>
+//  );
+//}
 
 export default function Calculator() {
   const [cashInput, setCashInput] = useState(1000);
@@ -68,14 +70,15 @@ export default function Calculator() {
   const [term, setTerm] = useState(1);
   const [termWord, setTermWord] = useState("дней");
 
-  const options = dateArray;
+  //  const { getRootProps, getRadioProps } = useRadioGroup({
+  //    name: "term",
+  //    defaultValue: "15",
+  //    onChange: ()=>console.log(1),
+  //  });
 
-  const { getRootProps, getRadioProps } = useRadioGroup({
-    name: "term",
-    defaultValue: "15",
-  });
-
-  const group = getRootProps();
+  //  const group = getRootProps({
+  ////    onChange:(e)=>console.log(e),
+  //  });
 
   const handleSliderChange = useCallback(
     (e: any) => {
@@ -116,7 +119,7 @@ export default function Calculator() {
       <div className={styles.choice_container}>
         <>
           <div className={styles.input_container}>
-            <VStack alignItems={"flex-start"} p={"30px 0 10px" + " 40px"}>
+            <VStack alignItems={"flex-start"} p={"10px 0 10px" + " 40px"}>
               <label className={styles.input_label}>
                 Введите сумму кредита
               </label>
@@ -186,9 +189,14 @@ export default function Calculator() {
               className={styles.money_limits_container}
               style={{ color: "black" }}
             >
-              {currencyArray.map((money,idx)=>(
-                <p onClick={()=>setCashInput(money.count)} style={{ cursor: "pointer" }} key={idx}>
-                  {money.count+money.currency}</p>
+              {currencyArray.map((money, idx) => (
+                <p
+                  onClick={() => setCashInput(money.count)}
+                  style={{ cursor: "pointer" }}
+                  key={idx}
+                >
+                  {money.count + money.currency}
+                </p>
               ))}
             </div>
           </div>
@@ -197,28 +205,27 @@ export default function Calculator() {
           <div className={styles.month_horizontal}>
             <label className={styles.input_label}>Срок кредита</label>
 
-            <HStack {...group} className={styles.monthes_horizontal}>
-              {dateArray.map((date, idx) => {
-                let count = date.count.toString();
-                const radio = getRadioProps({ count });
-                return (
-                  <RadioCard
-                    key={idx}
-                    value={count}
-                    isChecked={true}
-                    {...radio}
-                    onChange={() =>
-                      date.count === 15
-                        ? radioHandleChange(date.percent, 1, date.word)
-                        : radioHandleChange(date.percent, date.count, date.word)
-                    }
-                  >
-                    <p>{date.count}</p>
-                    <p>{date.percent < 3 ? "дней" : "мес."}</p>
-                  </RadioCard>
-                );
-              })}
-            </HStack>
+            {/*<HStack {...group} className={styles.monthes_horizontal} defaultValue={'1'}>*/}
+            {/*  {dateArray.map((date, idx) => {*/}
+            {/*    const radio = getRadioProps( {date} );*/}
+            {/*    return (*/}
+            {/*      <RadioCard*/}
+            {/*        key={idx}*/}
+            {/*        value={date.value}*/}
+            {/*        {...radio}*/}
+            {/*        onChange={() =>*/}
+            {/*          date.count === 15*/}
+            {/*            ? radioHandleChange(date.percent, 1, date.word)*/}
+            {/*            : radioHandleChange(date.percent, date.count, date.word)*/}
+            {/*        }*/}
+            {/*      >*/}
+            {/*        <p>{date.count}</p>*/}
+            {/*        <p>{date.percent < 3 ? "дней" : "мес."}</p>*/}
+            {/*      </RadioCard>*/}
+            {/*    );*/}
+            {/*  })}*/}
+            {/*</HStack>*/}
+            <Example radioHandleChange={radioHandleChange} />
           </div>
         </div>
       </div>

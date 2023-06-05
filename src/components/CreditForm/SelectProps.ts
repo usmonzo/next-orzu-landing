@@ -21,8 +21,13 @@ export const customSelectStyles = {
     fontSize: "1.2rem",
     fontWeight: "800",
     zIndex: 4,
+
+    // "&:hover": {
+    //   borderColor: "red",
+    //   color: "red",
+    // },
     "&:hover": {
-      border: "1px solid #E0E0E0",
+      border: "1px solid #ff6200",
     },
     "@media screen and (max-width: 890px)": {
       fontSize: "1rem",
@@ -30,6 +35,10 @@ export const customSelectStyles = {
     "::placeholder": {
       color: "red",
     },
+  }),
+  dropdownIndicator: (base: any) => ({
+    ...base,
+    color: "#333333",
   }),
   option: (styles: any, props: ISelectProps) => {
     const color = chroma("#D7DAE0");
@@ -76,6 +85,8 @@ export const customSelectStyles = {
   }),
   menuList: (base: any) => ({
     ...base,
+    height: "100%",
+    maxHeight: "410px",
     "-ms-overflow-style": "none",
     scrollbarWidth: "none",
     "::-webkit-scrollbar": {
@@ -112,7 +123,8 @@ export const secondSelectStyle = {
     fontWeight: "800",
     zIndex: 3,
     "&:hover": {
-      border: "1px solid #E0E0E0",
+      // border: "1px solid black",
+      border: "1px solid #ff6200",
     },
     "@media screen and (max-width: 890px)": {
       fontSize: "1rem",
@@ -167,5 +179,9 @@ export const secondSelectStyle = {
   placeholder: (defaultStyles: any) => ({
     ...defaultStyles,
     color: "#9ca3af",
+  }),
+  dropdownIndicator: (base: any) => ({
+    ...base,
+    color: "#333333",
   }),
 };
