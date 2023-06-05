@@ -111,7 +111,7 @@ export default function Calculator() {
             >
               <SliderTrack
                 alignSelf={"center"}
-                height={"3"}
+                height={"4"}
                 borderBottomRightRadius={"190px"}
                 borderBottomLeftRadius={"190px"}
                 p={0}
