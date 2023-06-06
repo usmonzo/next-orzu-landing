@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useId, useState } from "react";
-import { background, Checkbox, Input } from "@chakra-ui/react";
+import { ChangeEvent, useEffect, useId, useState } from "react";
+import { Checkbox, Input } from "@chakra-ui/react";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import styles from "./CreditForm.module.scss";
 import tablet from "../../../public/assets/tablet.svg";
@@ -11,6 +11,7 @@ import {
   customSelectStyles,
   secondSelectStyle,
 } from "@/components/CreditForm/SelectProps";
+import { citiesListData, projectType } from "@/data/_data";
 
 const inputProps = {
   variant: "unstyled",
@@ -30,42 +31,52 @@ const inputProps = {
 };
 
 export default function CreditForm() {
-  const [selectedCity, setSelectedCity] = useState<string>("");
+  // const [selectedCity, setSelectedCity] = useState<string>("");
+  // const [selectedProjectType, setSelectedProjectType] = useState("");
   const [citiesList, setCitiesList] = useState<any[]>([]);
   const [projectTypeList, setProjectTypeList] = useState<any[]>([]);
-  const [selectedProjectType, setSelectedProjectType] = useState("");
   const [body, setBody] = useState<any>();
-  const citiesListData = [
-    { label: "Душанбе", value: 4 },
-    { label: "Хучанд", value: 1 },
-    { label: "Истаравшан", value: 5 },
-    { label: "Пенджикент", value: 6 },
-    { label: "Куляб", value: 2 },
-    { label: "Курган-Тюбе", value: 7 },
-    { label: "Хорог", value: 3 },
-    { label: "Нурек", value: 8 },
-  ];
-  const projectType = [
-    { label: "Оформление орзу", value: 1, id: 1 },
-    { label: "Повысить лимит орзу", value: 2, id: 2 },
-    { label: "Оформление стандарт/проект кредита ", value: 3, id: 3 },
-  ];
-  const changeCity = (event: any) => {
-    if (event) {
-      setSelectedCity(event.name);
+  const [formData, setFormData] = useState({
+    fio: "",
+    phone_number: "",
+    city: null,
+    type_of_project: "",
+  });
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.name === "fio") {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value.replace(/[^а-яёË -]/iu, ""),
+      });
     }
   };
-  const changeProject = (event: any) => {
-    if (event) {
-      setSelectedProjectType(event.name);
+  const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value.replace(/\D/g, ""),
+    });
+  };
+  const handleProjectChange = (e: any) => {
+    if (e) {
+      setFormData({ ...formData, ["type_of_project"]: e.label });
+      console.log(formData);
     }
   };
-
+  const handleCityChange = (e: any) => {
+    if (e) {
+      setFormData({ ...formData, ["city"]: e.value });
+      console.log(e);
+    }
+  };
   useEffect(() => {
     setCitiesList(citiesListData);
     setProjectTypeList(projectType);
     setBody(document.getElementById("form"));
   }, []);
+
+  useEffect(() => {
+    console.log(formData.city);
+  }, [formData.city]);
 
   return (
     <>
@@ -77,13 +88,19 @@ export default function CreditForm() {
               <Input
                 className={styles.form_input}
                 {...inputProps}
+                name={"fio"}
+                onChange={(e) => handleInputChange(e)}
+                value={formData.fio ?? ""}
                 placeholder="Фамилия, имя и отчество"
               />
               <div className={styles.inputs_horizontal_container}>
                 <Input
                   className={styles.form_input}
                   {...inputProps}
+                  name={"phone_number"}
+                  onChange={(e) => handlePhoneChange(e)}
                   placeholder="Номер телефона"
+                  value={formData.phone_number ?? ""}
                 />
                 <Select
                   instanceId={useId()}
@@ -91,9 +108,8 @@ export default function CreditForm() {
                   menuPortalTarget={body}
                   openMenuOnClick={true}
                   options={citiesList}
-                  onChange={changeCity}
+                  onChange={(e) => handleCityChange(e)}
                   placeholder={"Город"}
-                  noOptionsMessage={() => "Нет такого города :("}
                   styles={customSelectStyles}
                   theme={(theme) => ({
                     ...theme,
@@ -105,13 +121,13 @@ export default function CreditForm() {
                 />
               </div>
               <Select
+                name={"type_of_project"}
                 instanceId={useId()}
                 isSearchable={false}
                 placeholder="Тип заявки"
                 openMenuOnClick={true}
                 options={projectTypeList}
-                onChange={changeCity}
-                noOptionsMessage={() => "Нет такого города :("}
+                onChange={(e) => handleProjectChange(e)}
                 styles={secondSelectStyle}
                 theme={(theme) => ({
                   ...theme,
@@ -148,6 +164,7 @@ export default function CreditForm() {
               </Checkbox>
             </div>
             <PrimaryButton
+              isDisabled={true}
               text={"Получить код"}
               aligned={"center"}
               zIndex={1}

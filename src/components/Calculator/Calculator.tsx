@@ -50,7 +50,7 @@ export default function Calculator() {
     if (e.target.value > 50000) {
       e.target.value = 50000;
     }
-    setCashInput(e.target.value);
+    setCashInput(e.target.value.replace(/\D/, ""));
   }, []);
 
   const countingFnc = (percent: number, month: number, cashCount: number) => {
@@ -159,7 +159,7 @@ export default function Calculator() {
             <label className={styles.input_label} style={{ paddingTop: "0" }}>
               Срок кредита
             </label>
-            <div className={styles.monthes_horizontal} defaultValue={"1"}>
+            <div className={styles.months_horizontal} defaultValue={"1"}>
               {dateArray.map((date, idx) =>
                 idx === active ? (
                   <div
@@ -176,7 +176,7 @@ export default function Calculator() {
                     }}
                   >
                     <p>{date.count}</p>
-                    <p>{date.percent < 3 ? "дней" : "мес."}</p>
+                    <p>{date.percent < 3 ? "дней" : "мес"}</p>
                   </div>
                 ) : (
                   <div
@@ -194,7 +194,7 @@ export default function Calculator() {
                     }}
                   >
                     <p>{date.count}</p>
-                    <p>{date.percent < 3 ? "дней" : "мес."}</p>
+                    <p>{date.percent < 3 ? "дней" : "мес"}</p>
                   </div>
                 )
               )}

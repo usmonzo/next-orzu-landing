@@ -57,7 +57,7 @@ export default function Example(props: any) {
     //                    )
     //            })}
     //        </HStack>
-    <HStack {...group} className={styles.monthes_horizontal} defaultValue={"1"}>
+    <HStack {...group} className={styles.months_horizontal} defaultValue={"1"}>
       {options.map((date, idx) => {
         const radio = getRadioProps({ date });
         return (

@@ -46,7 +46,7 @@ export const customSelectStyles = {
     return {
       ...styles,
       backgroundColor: props.isSelected
-        ? "#16191d"
+        ? "#323438"
         : props.isFocused
         ? "#e2e4e9"
         : "",
@@ -137,7 +137,7 @@ export const secondSelectStyle = {
     return {
       ...styles,
       backgroundColor: props.isSelected
-        ? "#16191d"
+        ? "#323438"
         : props.isFocused
         ? "#e2e4e9"
         : "",

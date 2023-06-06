@@ -3,6 +3,7 @@ import PrimaryButton from "../Buttons/PrimaryButton";
 import styles from "./HeaderContent.module.scss";
 import Image from "next/image";
 import timer from "../../../public/assets/timer.svg";
+import { Spinner } from "@chakra-ui/react";
 
 export default function HeaderContent() {
   return (
@@ -11,7 +12,7 @@ export default function HeaderContent() {
         <div className={styles.main_content_horizontal}>
           <div className={styles.orange_box}>
             <h2 className={styles.orange_box_text}>
-              Получите деньги почти сразу
+              Можете получить кредит наличными
             </h2>
             <BlackButton text={"Получить кредит"} />
           </div>
@@ -55,7 +56,7 @@ export default function HeaderContent() {
             <PrimaryButton text="Подробнее" aligned="flex-start" />
             <Image
               src={timer}
-              alt={""}
+              alt={"timer"}
               className={styles.white_box_timer_icon}
             />
           </div>

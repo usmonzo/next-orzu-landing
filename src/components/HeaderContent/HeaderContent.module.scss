@@ -236,7 +236,7 @@
 }
 .white_box_timer {
 	position: relative;
-	background-color: #f1f2f3f4;
+	background-color: #f1f2f4;
 	border-radius: 40px;
 	display: flex;
 	flex-direction: column;
@@ -248,10 +248,12 @@
 	overflow: hidden;
 
 	.white_box_timer_headline{
+		font-family: inherit;
 		font-size: 4.25rem;
-		font-weight: 700;
+		font-weight: 900;
 		color: #323438;
 		margin-top: 20px;
+		z-index: 100;
 	}
 
 	@media screen and (max-width: 890px) {
@@ -283,7 +285,13 @@
 	position: absolute;
 	//max-width: 371.36px;
 	//left: 0;
-	right: -30%;
-	top: 45%;
+	right: -20%;
+	top: 40%;
 	bottom: 0;
+	transform: rotate(-30deg);
+	z-index: 0;
+
+	@media screen and (max-width: 890px) {
+		top: 10%;
+	}
 }

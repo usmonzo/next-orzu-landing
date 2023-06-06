@@ -7,6 +7,7 @@ import facebook from "../../../public/assets/facebook.svg";
 import Image from "next/image";
 import Link from "next/link";
 export const Footer = () => {
+  const date = new Date().getFullYear();
   return (
     <div className={styles.footer_container}>
       <div className={styles.footer_horizontal}>
@@ -67,7 +68,7 @@ export const Footer = () => {
           клиентов. 734061, г. Душанбе, ул. Н. Карабаева, 148/1. Тел.: 544
         </div>
         <div className={styles.footer_humo_license}>
-          © 2022 ЗАО МДО «Хумо» Лицензия НБТ №0000077 от 24 мая 2017 г.
+          © {date} ЗАО МДО «Хумо» Лицензия НБТ №0000077 от 24 мая 2017 г.
         </div>
       </div>
     </div>
