@@ -9,6 +9,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	z-index: 2;
+	//transform: translate3d(0px, -500px, 0px);
 	// gap: 300px;
 
 	@media screen and (max-width: 890px) {
@@ -58,15 +60,15 @@
 .orange_box_text {
 	font-style: normal;
 	font-weight: 700;
-	font-size: 5.6rem;
+	font-size: 5.3rem;
 	line-height: 100%;
 	color: #ffffff;
 
 	@media screen and (max-width: 1160px) {
-		font-size: 4.3rem;
+		font-size: 4rem;
 	}
 	@media screen and (max-width: 890px) {
-		font-size: 4rem;
+		font-size: 3.5rem;
 
 	}
 	@media screen and (max-width: 400px) {
@@ -87,6 +89,7 @@
 	justify-content: space-between;
 	gap: 20px;
 	padding: 40px;
+	z-index: 2;
 
 		.white_box_horizontal{
 			display: flex;
@@ -146,6 +149,7 @@
 	justify-content: space-between;
 	gap: 20px;
 	padding: 40px;
+	z-index: 2;
 
 	@media screen and (max-width: 1000px) {
 		gap: 0;
@@ -223,6 +227,9 @@
 	font-size: 5rem;
 	line-height: 100%;
 	color: #323438;
+	//transform: translate3d(0px,-500px,0px);
+	z-index: 1;
+
 
 	@media screen and (max-width: 1077px) {
 		font-size: 3.25rem;
@@ -253,7 +260,7 @@
 	width: 100%;
 	padding: 40px;
 	overflow: hidden;
-
+z-index: 2;
 
 
 	@media screen and (max-width: 890px) {
