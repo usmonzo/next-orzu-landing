@@ -4,19 +4,33 @@ import styles from "./HeaderContent.module.scss";
 import Image from "next/image";
 import timer from "../../../public/assets/timer.svg";
 import { Spinner } from "@chakra-ui/react";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { useRef, useState } from "react";
 
 export default function HeaderContent() {
   return (
     <>
-      <div className={styles.header_main_content}>
+      <div
+        style={{ overflow: "scroll" }}
+        className={styles.header_main_content}
+      >
         <div className={styles.main_content_horizontal}>
-          <div className={styles.orange_box}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            // whileHover={{ scale: 0.98 }}
+            className={styles.orange_box}
+          >
             <h2 className={styles.orange_box_text}>
-              Можете получить кредит наличными
+              Получите кредит наличными почти сразу
             </h2>
             <BlackButton text={"Получить кредит"} />
-          </div>
-          <div className={styles.white_box}>
+          </motion.div>
+          <div
+            // whileHover={{ scale: 0.98 }}
+
+            className={styles.white_box}
+          >
             <h2 className={styles.white_box_headline}>5 лет</h2>
             <div className={styles.wh}>
               <p className={styles.white_box_secondary}>
@@ -38,7 +52,7 @@ export default function HeaderContent() {
         </h1>
         <div className={styles.main_content_horizontal}>
           <div className={styles.white_box_timer}>
-            <div>
+            <div style={{ zIndex: 5 }}>
               <span
                 style={{
                   fontSize: "24px",

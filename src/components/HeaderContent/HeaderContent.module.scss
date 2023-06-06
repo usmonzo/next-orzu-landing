@@ -234,6 +234,13 @@
 		font-size: 2.4rem;
 	}
 }
+.white_box_timer_headline{
+	font-family: inherit;
+	font-size: 4.25rem;
+	font-weight: 900;
+	color: #323438;
+	margin-top: 20px;
+}
 .white_box_timer {
 	position: relative;
 	background-color: #f1f2f4;
@@ -247,14 +254,7 @@
 	padding: 40px;
 	overflow: hidden;
 
-	.white_box_timer_headline{
-		font-family: inherit;
-		font-size: 4.25rem;
-		font-weight: 900;
-		color: #323438;
-		margin-top: 20px;
-		z-index: 100;
-	}
+
 
 	@media screen and (max-width: 890px) {
 		min-height: 400px;
@@ -283,13 +283,14 @@
 }
 .white_box_timer_icon{
 	position: absolute;
-	//max-width: 371.36px;
+	max-width: 371.36px;
+	width: 100%;
 	//left: 0;
 	right: -20%;
 	top: 40%;
 	bottom: 0;
 	transform: rotate(-30deg);
-	z-index: 0;
+	z-index: 2;
 
 	@media screen and (max-width: 890px) {
 		top: 10%;

@@ -1,6 +1,6 @@
 "use client";
 import { ChangeEvent, useEffect, useId, useState } from "react";
-import { Checkbox, Input } from "@chakra-ui/react";
+import { Checkbox, Input, InputGroup, InputLeftAddon } from "@chakra-ui/react";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import styles from "./CreditForm.module.scss";
 import tablet from "../../../public/assets/tablet.svg";
@@ -64,8 +64,8 @@ export default function CreditForm() {
   };
   const handleCityChange = (e: any) => {
     if (e) {
-      setFormData({ ...formData, ["city"]: e.value });
-      console.log(e);
+      setFormData({ ...formData, ["city"]: e.label });
+      console.log(formData);
     }
   };
   useEffect(() => {
@@ -75,8 +75,8 @@ export default function CreditForm() {
   }, []);
 
   useEffect(() => {
-    console.log(formData.city);
-  }, [formData.city]);
+    console.log(formData);
+  }, [formData]);
 
   return (
     <>
