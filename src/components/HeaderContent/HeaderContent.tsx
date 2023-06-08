@@ -28,6 +28,7 @@ export default function HeaderContent() {
     ["blur(4px)", "blur(0px)", "blur(4px)"]
   );
   const textOpacity = useTransform(scrollY, [1250, 1500], [1, 0]);
+
   return (
     <>
       <div className={styles.header_main_content}>

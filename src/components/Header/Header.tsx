@@ -32,6 +32,11 @@ const Header = () => {
   );
   const cardsTranslate = useTransform(scrollY, [166, 630], ["0%", "100%"]);
   const whiteCardTranslate = useTransform(scrollY, [166, 630], ["0%", "-100%"]);
+  const backgroundColor = useTransform(
+    scrollY,
+    [1600, 2000],
+    ["#fff", "#16191d"]
+  );
 
   return (
     <>
@@ -97,11 +102,14 @@ const Header = () => {
           </motion.div>
         </div>
       </header>
-      <section className={styles.header_content_section}>
+      <motion.section
+        className={styles.header_content_section}
+        style={{ backgroundColor }}
+      >
         <div className={styles.header_content_color}>
           <HeaderContent />
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };

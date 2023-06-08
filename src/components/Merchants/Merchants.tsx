@@ -18,18 +18,34 @@ import azs from "../../../public/assets/gas-station.svg";
 import education from "../../../public/assets/book.svg";
 import child from "../../../public/assets/mdi_children-toy.svg";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const Merchants = () => {
+  const { scrollY } = useScroll();
+  const backgroundColor = useTransform(
+    scrollY,
+    [1600, 2000],
+    ["#fff", "#16191d"]
+  );
+
+  const headlineOpacity = useTransform(scrollY, [1800, 1950, 2500], [0, 1, 0]);
+  const headlineScale = useTransform(scrollY, [1800, 2600], [1, 2]);
+
   return (
-    <section>
+    <motion.section style={{ backgroundColor }}>
       <div className="merch-container">
         <div>
-          <h1 className="merch-headline">Где же оплатить?</h1>
-          <p className="merch-paragraph">
-            Выберите категорию для того, чтобы посмотреть список магазинов
-          </p>
+          <motion.h1
+            className="merch-headline"
+            style={{ opacity: headlineOpacity, scale: headlineScale }}
+          >
+            Где же оплатить?
+          </motion.h1>
         </div>
+        <h1 className="merch-paragraph">
+          {/*Выберите категорию для того, чтобы посмотреть список магазинов*/}
+          Категории партнеров
+        </h1>
         <div className="merch-list">
           <MerchBox text="Бытовая техника">
             <Image
@@ -169,7 +185,7 @@ const Merchants = () => {
         </div>
         <WhiteButton text="Посмотреть все магазины" />
       </div>
-    </section>
+    </motion.section>
   );
 };
 

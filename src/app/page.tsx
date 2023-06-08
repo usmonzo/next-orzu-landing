@@ -8,11 +8,9 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div style={{ scrollSnapAlign: "none" }}>
-        <Merchants />
-        <PreFooterSection />
-        <FaqSection />
-      </div>
+      <Merchants />
+      <PreFooterSection />
+      <FaqSection />
     </>
   );
 }
