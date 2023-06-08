@@ -7,11 +7,12 @@ import FaqSection from "@/components/FAQ/FaqSection";
 export default function Home() {
   return (
     <>
-      <Navbar />
       <Header />
-      <Merchants />
-      <PreFooterSection />
-      <FaqSection />
+      <div style={{ scrollSnapAlign: "none" }}>
+        <Merchants />
+        <PreFooterSection />
+        <FaqSection />
+      </div>
     </>
   );
 }

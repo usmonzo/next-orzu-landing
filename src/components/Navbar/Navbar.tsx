@@ -7,9 +7,11 @@ const Navbar = () => {
   return (
     <motion.nav
       className="navbar-container"
-      initial={{ marginTop: '-50px',marginBottom:'20px', opacity: 0 }}
-      whileInView={{ marginTop: 0,marginBottom:0, opacity: 1 }}
+      // initial={{ marginTop: '-50px',marginBottom:'20px', opacity: 0 }}
+      // whileInView={{ transform: `translate3d(0px,0px,0px)` }}
+      initial={{ transform: `translate3d(0px,-200px,0px)` }}
       transition={{ delay: 0.1 }}
+      animate={{ transform: `translate3d(0px,0px,0px)` }}
     >
       <div className="navbar-content">
         <Link href={"/"}>

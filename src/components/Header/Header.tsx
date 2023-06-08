@@ -7,47 +7,36 @@ import PrimaryButton from "../Buttons/PrimaryButton";
 import styles from "./Header.module.scss";
 import Image from "next/image";
 import HeaderContent from "../HeaderContent/HeaderContent";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { useRef, useState } from "react";
+import {
+  motion,
+  motionValue,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { useEffect } from "react";
+import Navbar from "@/components/Navbar/Navbar";
 
 const Header = () => {
   const { scrollY } = useScroll();
-  // const scrollRef = useRef(null);
-  const [cardsOpacity, setCardsOpacity] = useState(1);
-  const [cardTranslation, setCardTranslate] = useState({
-    x: 0,
-    y: 0,
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    // console.log("Page scroll: ", latest);
   });
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    console.log("Page scroll: ", latest);
-    if (latest >= 166 && latest <= 630) {
-      // 1 is start opacity point
-      // 66 animation start
-      // 430 end of animation
-      // 365 one tick of scroll
-      setCardsOpacity(1 - (latest - 166) / 465);
-      setCardTranslate({
-        x: -(((latest - 166) * 100) / 465),
-        y: -(((latest - 166) * 100) / 465),
-      });
-    } else if (latest > 630) {
-      setCardTranslate({
-        x: -100,
-        y: -100,
-      });
-      setCardsOpacity(0);
-    } else if (latest < 166) {
-      setCardsOpacity(1);
-      setCardTranslate({
-        x: 0,
-        y: 0,
-      });
-    }
-  });
+  const opacity = useTransform(
+    scrollY,
+    // Map x from these values:
+    [166, 630],
+    // Into these values:
+    [1, 0]
+  );
+  const cardsTranslate = useTransform(scrollY, [166, 630], ["0%", "100%"]);
+  const whiteCardTranslate = useTransform(scrollY, [166, 630], ["0%", "-100%"]);
+
   return (
     <>
       <header className={styles.header_container}>
+        <Navbar />
         <div
           style={{
             display: "flex",
@@ -74,30 +63,38 @@ const Header = () => {
           </span>
         </div>
         <div className={styles.header_icons_container}>
-          <Image
-            src={white}
-            alt="2"
-            width={1650}
-            height={800}
-            className={styles.header_icons}
+          <motion.div
             style={{
-              opacity: `${cardsOpacity}`,
-              transform: `translate3d(${cardTranslation.x}%, ${cardTranslation.y}%,0)`,
-              // transition: "all 0.1s linear",
+              opacity,
+              translateX: whiteCardTranslate,
+              translateY: whiteCardTranslate,
+              transition: ".5s all ease-in-out",
             }}
-          />
-          <Image
-            src={black}
-            alt="2"
-            width={1650}
-            height={800}
-            className={styles.header_icons}
+          >
+            <Image
+              src={white}
+              alt="2"
+              width={1650}
+              height={800}
+              className={styles.header_icons}
+            />
+          </motion.div>
+          <motion.div
             style={{
-              opacity: `${cardsOpacity}`,
-              transform: `translate3d(${-cardTranslation.x}%, ${-cardTranslation.y}%,0)`,
-              // transition: "all 0.1s linear",
+              opacity,
+              translateX: cardsTranslate,
+              translateY: cardsTranslate,
+              transition: ".5s all ease-in-out",
             }}
-          />
+          >
+            <Image
+              src={black}
+              alt="2"
+              width={1650}
+              height={800}
+              className={styles.header_icons}
+            />
+          </motion.div>
         </div>
       </header>
       <section className={styles.header_content_section}>

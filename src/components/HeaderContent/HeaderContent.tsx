@@ -3,106 +3,41 @@ import PrimaryButton from "../Buttons/PrimaryButton";
 import styles from "./HeaderContent.module.scss";
 import Image from "next/image";
 import timer from "../../../public/assets/timer.svg";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { useCallback, useState } from "react";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { useCallback, useEffect, useState } from "react";
 
 export default function HeaderContent() {
   const { scrollY } = useScroll();
-  const [orangeContainerTranslate, setOrangeContainerTranslate] = useState(0);
-  const [grayContainerTranslate, setGrayContainerTranslate] = useState(0);
-  const [headlineTranslate, setHeadlineTranslate] = useState(780);
-  const [headlineBlur, setHeadlineBlur] = useState(4);
-  const [headlineOpacity, setHeadlineOpacity] = useState(1);
-  const [timerContainerTranslate, setTimerContainerTranslate] = useState(0);
-  const [blueContainerTranslate, setBlueContainerTranslate] = useState(0);
-  // useMotionValueEvent(
-  //   scrollY,
-  //   "change",
-  //   useCallback((latest) => {
-  //     if (latest >= 200 && latest <= 480) {
-  //       setOrangeContainerTranslate(((latest - 200) * 500) / 280);
-  //       console.log(orangeContainerTranslate);
-  //     } else if (latest > 480) {
-  //       setOrangeContainerTranslate(500);
-  //     } else if (latest < 200) {
-  //       setOrangeContainerTranslate(0);
-  //     }
-  //     if (latest >= 350 && latest <= 480) {
-  //       setGrayContainerTranslate(((latest - 350) * 500) / 130);
-  //       console.log(orangeContainerTranslate);
-  //     } else if (latest > 480) {
-  //       setGrayContainerTranslate(500);
-  //     } else if (latest < 350) {
-  //       setGrayContainerTranslate(0);
-  //     }
-  //
-  //     if (latest >= 480 && latest <= 860) {
-  //       setHeadlineTranslate(780 - ((latest - 480) * 280) / 380);
-  //       setHeadlineBlur(4 - ((latest - 480) * 4) / 380);
-  //     } else if (latest >= 860 && latest <= 1200) {
-  //       setHeadlineTranslate(500 - ((latest - 860) * 500) / 340);
-  //       setHeadlineBlur(((latest - 860) * 4) / 340);
-  //       setHeadlineOpacity(1 - (latest - 860) / 340);
-  //     }
-  //
-  //     // else if (latest > 860) {
-  //     //   setHeadlineTranslate(500);
-  //     // }
-  //     // else if (latest < 480) {
-  //     //   setHeadlineTranslate(0);
-  //     // }
-  //     if (latest >= 700 && latest <= 1000) {
-  //       setTimerContainerTranslate(((latest - 700) * 550) / 300);
-  //     } else if (latest > 1000) {
-  //       setTimerContainerTranslate(550);
-  //     } else if (latest < 700) {
-  //       setTimerContainerTranslate(0);
-  //     }
-  //     if (latest >= 850 && latest <= 1000) {
-  //       setBlueContainerTranslate(((latest - 850) * 550) / 150);
-  //     } else if (latest > 1000) {
-  //       setBlueContainerTranslate(550);
-  //     } else if (latest < 850) {
-  //       setBlueContainerTranslate(0);
-  //     }
-  //   }, [])
-  // );
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  };
-  const container = {
-    hidden: { opacity: 1, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
-  };
+  const orangeBoxTranslate = useTransform(scrollY, [166, 630], [300, -500]);
+  const whiteBoxTranslate = useTransform(scrollY, [166, 630], [300, -500]);
+  const whiteBoxTimerTranslate = useTransform(scrollY, [600, 1000], [50, -600]);
+  const blueBoxTranslate = useTransform(scrollY, [600, 1000], [50, -600]);
+  const textTranslate = useTransform(
+    scrollY,
+    [480, 1050, 1500],
+    [-650, -550, -80]
+  );
+  const filter = useTransform(
+    scrollY,
+    [480, 1050, 1500],
+    ["blur(4px)", "blur(0px)", "blur(4px)"]
+  );
+  const textOpacity = useTransform(scrollY, [1250, 1500], [1, 0]);
   return (
     <>
       <div className={styles.header_main_content}>
-        <motion.div
-          className={styles.main_content_horizontal}
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
+        <div className={styles.main_content_horizontal}>
           <motion.div
             className={styles.orange_box}
-            // style={{
-            //   // transition: "all 0.1s linear",
-            //   transform: `translate3d(0px,${-orangeContainerTranslate}px,0px)`,
-            // }}
-            initial={{ transform: `translate3d(0px,500px,0px)` }}
-            whileInView={{ transform: `translate3d(0px,0px,0px)` }}
-            transition={{ duration: 0.6 }}
+            style={{
+              translateY: orangeBoxTranslate,
+              transition: ".2s all linear",
+            }}
           >
             <h2 className={styles.orange_box_text}>
               Получите кредит наличными почти сразу
@@ -111,9 +46,10 @@ export default function HeaderContent() {
           </motion.div>
           <motion.div
             className={styles.white_box}
-            initial={{ transform: `translate3d(0px,700px,0px)` }}
-            whileInView={{ transform: `translate3d(0px,0px,0px)` }}
-            transition={{ duration: 0.8 }}
+            style={{
+              translateY: whiteBoxTranslate,
+              transition: ".2s all linear",
+            }}
           >
             <h2 className={styles.white_box_headline}>5 лет</h2>
             <div className={styles.wh}>
@@ -130,26 +66,25 @@ export default function HeaderContent() {
               justify="end"
             />
           </motion.div>
-        </motion.div>
-        {/*<h1*/}
-        {/*  className={styles.header_main_content_headline}*/}
-        {/*  style={{*/}
-        {/*    transform: `translate(0px,${-headlineTranslate}px)`,*/}
-        {/*    filter: `blur(${headlineBlur.toFixed(3)}px)`,*/}
-        {/*    opacity: `${headlineOpacity}`,*/}
-        {/*  }}*/}
-        {/*>*/}
-        {/*  Пользуйтесь где угодно и когда угодно*/}
-        {/*</h1>*/}
+        </div>
+        <motion.h1
+          className={styles.header_main_content_headline}
+          style={{
+            translateY: textTranslate,
+            filter,
+            opacity: textOpacity,
+            // filter: `blur(${filter.get()})px`,
+          }}
+        >
+          Пользуйтесь где угодно и когда угодно
+        </motion.h1>
         <div className={styles.main_content_horizontal}>
           <motion.div
             className={styles.white_box_timer}
             style={{
-              transform: `translate(0px,${-timerContainerTranslate}px)`,
+              translateY: whiteBoxTimerTranslate,
+              transition: ".2s all linear",
             }}
-            initial={{ transform: `translate3d(0px,500px,0px)` }}
-            whileInView={{ transform: `translate3d(0px,0px,0px)` }}
-            transition={{ duration: 0.6 }}
           >
             <div style={{ zIndex: 5 }}>
               <span
@@ -176,11 +111,9 @@ export default function HeaderContent() {
           <motion.div
             className={styles.blue_box}
             style={{
-              transform: `translate(0px,${-blueContainerTranslate}px)`,
+              translateY: blueBoxTranslate,
+              transition: ".2s all linear",
             }}
-            initial={{ transform: `translate3d(0px,700px,0px)` }}
-            whileInView={{ transform: `translate3d(0px,0px,0px)` }}
-            transition={{ duration: 0.8 }}
           >
             <h2 className={styles.blue_box_text} style={{ fontWeight: "900" }}>
               Кредит <br />
