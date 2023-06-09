@@ -27,6 +27,17 @@ const Merchants = () => {
     [1600, 2000],
     ["#fff", "#16191d"]
   );
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
 
   const headlineOpacity = useTransform(scrollY, [1800, 1950, 2500], [0, 1, 0]);
   const headlineScale = useTransform(scrollY, [1800, 2600], [1, 2]);
@@ -46,7 +57,13 @@ const Merchants = () => {
           {/*Выберите категорию для того, чтобы посмотреть список магазинов*/}
           Категории партнеров
         </h1>
-        <div className="merch-list">
+        <motion.div
+          className="merch-list"
+          variants={container}
+          initial="hidden"
+          // animate="visible"
+          whileInView="visible"
+        >
           <MerchBox text="Бытовая техника">
             <Image
               src={tech}
@@ -182,7 +199,7 @@ const Merchants = () => {
               className="merch-icon"
             />
           </MerchBox>
-        </div>
+        </motion.div>
         <WhiteButton text="Посмотреть все магазины" />
       </div>
     </motion.section>
