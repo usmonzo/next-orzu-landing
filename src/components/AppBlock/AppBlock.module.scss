@@ -109,7 +109,6 @@ align-items: center;
 }
 
 .block_orzu_theme{
-  transition: .2s all linear;
   position: absolute;
   display: flex;
   //min-height: 900px;
@@ -126,6 +125,7 @@ align-items: center;
   @media screen and (max-width: 530px) {
     right: -10px;
     bottom: -30px;
+    transition: .4s all linear;
   }
   @media screen and (max-width: 420px) {
     right: 0;
