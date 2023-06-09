@@ -1,23 +1,15 @@
 "use client";
 import {
   Input,
-  Radio,
-  RadioGroup,
   Slider,
   SliderFilledTrack,
   SliderThumb,
   SliderTrack,
   VStack,
-  Box,
-  useRadio,
-  useRadioGroup,
-  HStack,
 } from "@chakra-ui/react";
 import styles from "./Calculator.module.scss";
 import { useCallback, useState } from "react";
 import { currencyArray, dateArray } from "@/data/_data";
-import RadioCard from "@/components/Calculator/RadioCard";
-import Example from "@/components/Calculator/RadioCard";
 
 interface IRadioProps {
   isChecked: boolean;
@@ -218,7 +210,7 @@ export default function Calculator() {
           </div>
           <div className={styles.sum_description_box}>
             <p>Срок</p>
-            <h2>
+            <h2 style={{ maxWidth: "245px", width: "100%" }}>
               {termWord === "дней"
                 ? 15 + " " + termWord
                 : term + " " + termWord}
@@ -234,18 +226,3 @@ export default function Calculator() {
     </>
   );
 }
-
-// <Radio
-//   colorScheme={"none"}
-//   key={idx}
-//   defaultChecked={date.count === 15}
-//   value={date.count.toString()}
-//   variant={"ZodString"}
-//   _checked={{ backgroundColor: "red" }}
-//   _active={{}}
-//   __css={{}}
-//   _focus={{ outline: "none", boxShadow: "none" }}
-//   onChange={() =>
-//     radioHandleChange(date.percent, date.count, date.word)
-//   }
-// >

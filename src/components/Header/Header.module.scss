@@ -98,3 +98,11 @@
 		padding: 0 ;
 	}
 }
+
+.transition_cards{
+	transition: .5s all linear;
+
+	@media screen and (max-width:724px ){
+	transition: .2s all linear;
+	}
+}

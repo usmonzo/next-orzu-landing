@@ -19,10 +19,6 @@ import Navbar from "@/components/Navbar/Navbar";
 
 const Header = () => {
   const { scrollY } = useScroll();
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    // console.log("Page scroll: ", latest);
-  });
-
   const opacity = useTransform(
     scrollY,
     // Map x from these values:
@@ -69,11 +65,11 @@ const Header = () => {
         </div>
         <div className={styles.header_icons_container}>
           <motion.div
+            className={styles.transition_cards}
             style={{
               opacity,
               translateX: whiteCardTranslate,
               translateY: whiteCardTranslate,
-              transition: ".5s all ease-in-out",
             }}
           >
             <Image
@@ -85,11 +81,11 @@ const Header = () => {
             />
           </motion.div>
           <motion.div
+            className={styles.transition_cards}
             style={{
               opacity,
               translateX: cardsTranslate,
               translateY: cardsTranslate,
-              transition: ".5s all ease-in-out",
             }}
           >
             <Image

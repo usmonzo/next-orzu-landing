@@ -18,23 +18,35 @@ import azs from "../../../public/assets/gas-station.svg";
 import education from "../../../public/assets/book.svg";
 import child from "../../../public/assets/mdi_children-toy.svg";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { useState } from "react";
 
 const Merchants = () => {
+  const [onView, setOnView] = useState(false);
   const { scrollY } = useScroll();
   const backgroundColor = useTransform(
     scrollY,
     [1600, 2000],
     ["#fff", "#16191d"]
   );
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest >= 2400) {
+      setOnView(true);
+    }
+  });
   const container = {
     hidden: { opacity: 1, scale: 0 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
+        delayChildren: 0.1,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -53,16 +65,12 @@ const Merchants = () => {
             Где же оплатить?
           </motion.h1>
         </div>
-        <h1 className="merch-paragraph">
-          {/*Выберите категорию для того, чтобы посмотреть список магазинов*/}
-          Категории партнеров
-        </h1>
+        <h1 className="merch-paragraph">Категории партнеров</h1>
         <motion.div
           className="merch-list"
           variants={container}
           initial="hidden"
-          // animate="visible"
-          whileInView="visible"
+          animate={onView ? "visible" : ""}
         >
           <MerchBox text="Бытовая техника">
             <Image
