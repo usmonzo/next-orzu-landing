@@ -13,7 +13,7 @@ import { Footer } from "@/components/Footer/Footer";
 
 const FaqSection = () => {
   return (
-    <section className={styles.color_sectiion}>
+    <section className={styles.color_section}>
       <div className={styles.container}>
         <h1 className={styles.faq_headline}>Часто задаваемые вопросы</h1>
         <div className={styles.faq_container}>

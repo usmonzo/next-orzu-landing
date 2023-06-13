@@ -6,12 +6,14 @@ import styles from "./CreditForm.module.scss";
 import tablet from "../../../public/assets/tablet.svg";
 import Image from "next/image";
 import Select from "react-select";
+import apiClient from "../../utils/axios/http-common";
 
 import {
   customSelectStyles,
   secondSelectStyle,
 } from "@/components/CreditForm/SelectProps";
 import { citiesListData, projectType } from "@/data/_data";
+import { useMutation } from "@tanstack/react-query";
 
 const inputProps = {
   variant: "unstyled",
@@ -31,22 +33,52 @@ const inputProps = {
 };
 
 export default function CreditForm() {
-  // const [selectedCity, setSelectedCity] = useState<string>("");
-  // const [selectedProjectType, setSelectedProjectType] = useState("");
   const [citiesList, setCitiesList] = useState<any[]>([]);
   const [projectTypeList, setProjectTypeList] = useState<any[]>([]);
-  const [body, setBody] = useState<any>();
+  const [body, setBody] = useState<HTMLElement | null>();
+  const [postResult, setPostResult] = useState(null);
+  const [agreementCheckbox, setAgreementCheckbox] = useState(false);
   const [formData, setFormData] = useState({
-    fio: "",
-    phone_number: "",
-    city: null,
-    type_of_project: "",
+    full_name: "",
+    phone: "",
+    city: "",
+    application_type: "",
   });
+
+  const { isLoading: isPostLoading, mutate: postFormData } = useMutation(
+    async () => {
+      return await apiClient.post(`/landing/sendApplication`, {
+        full_name: formData.full_name,
+        phone: formData.phone,
+        city: formData.city,
+        application_type: formData.application_type,
+      });
+    },
+    {
+      onSuccess: (res) => {
+        const result = {
+          status: res.status + "-" + res.statusText,
+          headers: res.headers,
+          data: res.data,
+        };
+        console.log(result);
+        // setPostResult(fortmatResponse(result));
+      },
+      onError: (err) => {
+        // setPostResult(fortmatResponse(err.response?.data || err));
+        console.log(err);
+      },
+    }
+  );
+  useEffect(() => {
+    console.log(agreementCheckbox);
+  }, [agreementCheckbox]);
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.name === "fio") {
+    if (e.target.name === "full_name") {
       setFormData({
         ...formData,
-        [e.target.name]: e.target.value.replace(/[^а-яёË -]/iu, ""),
+        [e.target.name]: e.target.value,
+        //.replace(/[^а-яёË -]/iu, ""),
       });
     }
   };
@@ -58,7 +90,7 @@ export default function CreditForm() {
   };
   const handleProjectChange = (e: any) => {
     if (e) {
-      setFormData({ ...formData, ["type_of_project"]: e.label });
+      setFormData({ ...formData, ["application_type"]: e.label });
       console.log(formData);
     }
   };
@@ -88,20 +120,31 @@ export default function CreditForm() {
               <Input
                 className={styles.form_input}
                 {...inputProps}
-                name={"fio"}
+                name={"full_name"}
                 onChange={(e) => handleInputChange(e)}
-                value={formData.fio ?? ""}
+                value={formData.full_name ?? ""}
                 placeholder="Фамилия, имя и отчество"
               />
               <div className={styles.inputs_horizontal_container}>
-                <Input
-                  className={styles.form_input}
-                  {...inputProps}
-                  name={"phone_number"}
-                  onChange={(e) => handlePhoneChange(e)}
-                  placeholder="Номер телефона"
-                  value={formData.phone_number ?? ""}
-                />
+                <InputGroup {...inputProps}>
+                  <InputLeftAddon
+                    color={"black"}
+                    children={"+992"}
+                    backgroundColor={"#d7dae0"}
+                    paddingRight={3}
+                  />
+                  <Input
+                    _focus={{ borderColor: "black", outline: "none" }}
+                    size={"lg"}
+                    maxLength={9}
+                    focusBorderColor={"transparent"}
+                    fontWeight={700}
+                    name={"phone"}
+                    onChange={(e) => handlePhoneChange(e)}
+                    placeholder="Номер телефона"
+                    value={formData.phone ?? ""}
+                  />
+                </InputGroup>
                 <Select
                   instanceId={useId()}
                   isSearchable={false}
@@ -128,6 +171,7 @@ export default function CreditForm() {
                 openMenuOnClick={true}
                 options={projectTypeList}
                 onChange={(e) => handleProjectChange(e)}
+                isOptionDisabled={(option: any) => option.disabled}
                 styles={secondSelectStyle}
                 theme={(theme) => ({
                   ...theme,
@@ -141,18 +185,14 @@ export default function CreditForm() {
             <div className={styles.rules_container}>
               <Checkbox
                 className={styles.rules_checkbox}
-                // _active={{}}
                 size={"lg"}
-                // backgroundColor={'#D7DAE0'}
-                // border={'1px solid #000'}
                 spacing={2}
                 outline={{}}
-                // _checked={{}}
                 iconColor={"#090909"}
                 borderColor={"#ff6200"}
                 colorScheme={"black"}
-                // p={0}
-                // m={0}
+                checked={agreementCheckbox}
+                onChange={(e) => setAgreementCheckbox(e.target.checked)}
                 borderRadius={"10px"}
                 zIndex={1}
               >
@@ -164,7 +204,15 @@ export default function CreditForm() {
               </Checkbox>
             </div>
             <PrimaryButton
-              isDisabled={true}
+              onClick={postFormData}
+              isDisabled={
+                formData.full_name === "" ||
+                formData.phone.length !== 9 ||
+                formData.city === "" ||
+                formData.application_type === "" ||
+                !agreementCheckbox
+              }
+              isLoading={isPostLoading}
               text={"Получить код"}
               aligned={"center"}
               zIndex={1}

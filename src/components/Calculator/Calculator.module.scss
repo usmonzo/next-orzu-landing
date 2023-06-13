@@ -17,7 +17,6 @@
 	font-size: 1.75rem;
 	line-height: 120%;
 	color: #323438;
-	padding-top: 10px;
 	justify-self: flex-start;
 
 	@media screen and (max-width: 860px) {
@@ -32,7 +31,7 @@
 	//align-items: center;
 	//justify-content: center;
 	//padding: 30px 0 0 0;
-	 //gap: 24px;
+	//gap: 24px;
 	background: #f1f2f4;
 	//border-radius: 29px;
 	border-top-left-radius: 32px;
@@ -53,7 +52,6 @@
 		border-bottom-right-radius: 8px;
 	}
 }
-
 
 .monthes {
 	width: 100%;
@@ -80,7 +78,7 @@
 	align-items: center;
 	padding: 24px;
 	gap: 5px;
-	max-width: 11%;
+	//max-width: 11%;
 	width: 100%;
 	//min-height: 286px;
 	//height: 100%;
@@ -89,7 +87,7 @@
 
 	:first-of-type {
 		font-style: normal;
-		font-weight: 900;
+		font-weight: 800;
 		font-size: 2rem;
 		// line-height: 100%;
 		letter-spacing: -0.04em;
@@ -99,13 +97,12 @@
 		}
 		@media screen and (max-width: 390px) {
 			font-size: 1.2rem;
-		@media screen and (max-width: 360px) {
-			font-size: 1.2rem;
+			@media screen and (max-width: 360px) {
+				font-size: 1.2rem;
+			}
 		}
 	}
-	}
 	:last-of-type {
-		font-family: 'Golos', sans-serif;
 		font-style: normal;
 		font-weight: 500;
 		font-size: 1.2rem;
@@ -116,7 +113,7 @@
 			font-size: 1rem;
 		}
 		@media screen and (max-width: 360px) {
-			font-size: .8rem;
+			font-size: 0.8rem;
 		}
 	}
 	@media screen and (max-width: 660px) {
@@ -134,44 +131,43 @@
 	align-items: center;
 	padding: 24px;
 	gap: 5px;
-	max-width: 11%;
+	//max-width: 100%;
 	width: 100%;
-	//min-height: 286px;
+	//min-width: 286px;
 	//height: 100%;
 	background: #030303;
-	color: #FFFFFF;
+	color: #ffffff;
 	border-radius: 12px;
-	transition: 0.1s all  ease;
+	transition: 0.1s all ease;
 
 	:first-of-type {
 		font-style: normal;
-		font-weight: 900;
+		font-weight: 800;
 		font-size: 2rem;
 		// line-height: 100%;
 		letter-spacing: -0.04em;
-		color: #FFFFFF;
+		color: #ffffff;
 		@media screen and (max-width: 440px) {
 			font-size: 1.7rem;
 		}
 		@media screen and (max-width: 390px) {
 			font-size: 1.2rem;
-		@media screen and (max-width: 360px) {
-			font-size: 1.2rem;
+			@media screen and (max-width: 360px) {
+				font-size: 1.2rem;
+			}
 		}
-	}
 	}
 	:last-of-type {
 		font-style: normal;
 		font-weight: 500;
 		font-size: 1.2rem;
-		line-height: 100%;
 		letter-spacing: -0.04em;
 		color: #9da1a9;
 		@media screen and (max-width: 440px) {
 			font-size: 1rem;
 		}
 		@media screen and (max-width: 360px) {
-			font-size: .8rem;
+			font-size: 0.8rem;
 		}
 	}
 	@media screen and (max-width: 660px) {
@@ -185,16 +181,17 @@
 	width: 100%;
 	//height: auto;
 	display: flex;
-	//justify-content: space-between;
+	justify-content: space-between;
+	flex-direction: row;
 	//background: #3c7dbe;
-	gap: calc(12%/7);
-	row-gap: 8px;
-	flex-wrap: wrap;
+	gap: calc(12% / 7);
+	//gap: 12%;
+	//row-gap: 8px;
+	//flex-wrap: wrap;
 
 	@media screen and (max-width: 660px) {
-	gap: 4%;
+		//gap: 4%;
 		row-gap: 8px;
-
 	}
 }
 
@@ -205,7 +202,6 @@
 	width: 100%;
 
 	p {
-		font-family: 'Golos', sans-serif;
 		font-style: normal;
 		font-weight: 500;
 		font-size: 1rem;
@@ -236,7 +232,7 @@
 	margin-bottom: 24px;
 
 	@media screen and (max-width: 1075px) {
-	padding: 24px;
+		padding: 24px;
 	}
 }
 
@@ -247,7 +243,7 @@
 
 	span {
 		font-style: normal;
-		font-weight: 500;
+		font-weight: 700;
 		font-size: 2rem;
 		line-height: 100%;
 		letter-spacing: -0.04em;
@@ -255,7 +251,7 @@
 		margin-bottom: 20px;
 	}
 	h1 {
-		font-weight: 900;
+		font-weight: 600;
 		font-size: 3.4rem;
 		line-height: 100%;
 		letter-spacing: -0.04em;
@@ -278,7 +274,7 @@
 			font-size: 2.1rem;
 		}
 	}
-	}
+}
 .sum_description {
 	display: flex;
 	gap: 10em;
@@ -301,7 +297,7 @@
 		color: #9da1a9;
 	}
 	h2 {
-		font-weight: 800;
+		font-weight: 700;
 		font-size: 2.7rem;
 		line-height: 100%;
 		letter-spacing: -0.04em;

@@ -1,12 +1,21 @@
-'use client';
+"use client";
 
-import { CacheProvider } from '@chakra-ui/next-js';
-import { ChakraProvider } from '@chakra-ui/react';
+import React from "react";
+import { CacheProvider } from "@chakra-ui/next-js";
+import { ChakraProvider } from "@chakra-ui/react";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 export function Providers({ children }: { children: React.ReactNode }) {
-	return (
-		<CacheProvider>
-			<ChakraProvider>{children}</ChakraProvider>
-		</CacheProvider>
-	);
+  const [client] = React.useState(
+    new QueryClient({ defaultOptions: { queries: { staleTime: 5000 } } })
+  );
+
+  return (
+    <QueryClientProvider client={client}>
+      <CacheProvider>
+        <ChakraProvider>{children}</ChakraProvider>
+      </CacheProvider>
+      {/*<ReactQueryDevtools initialIsOpen={false} />*/}
+    </QueryClientProvider>
+  );
 }

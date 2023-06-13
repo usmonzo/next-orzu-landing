@@ -16,8 +16,8 @@
 	line-height: 130%;
 	text-align: center;
 	color: #323438;
-	font-size: 4rem;
-	font-weight: 900;
+	font-size: 4.2rem;
+	font-weight: 800;
 	padding-top: 50px;
 
 	@media screen and (max-width: 735px) {
@@ -25,10 +25,13 @@
 		font-weight: 800;
 		line-height: 100%;
 	}
-	@media screen and (max-width: 500px) {
+	@media screen and (max-width: 580px) {
 		font-size: 2.5rem;
 		font-weight: 800;
-		line-height: 100%;
+	}
+	@media screen and (max-width: 400px) {
+		font-size: 2.1rem;
+		font-weight: 700;
 	}
 }
 .header_paragraph {
@@ -80,12 +83,12 @@
 .header_content_section {
 	background: #ffffff;
 	padding-bottom: 150px;
-@media screen and (max-width: 1074px){
-	padding-bottom: 80px;
-}
-	@media screen and (max-width: 540px){
-	padding-bottom: 60px;
-}
+	@media screen and (max-width: 1074px) {
+		padding-bottom: 80px;
+	}
+	@media screen and (max-width: 540px) {
+		padding-bottom: 60px;
+	}
 }
 .header_content_color {
 	max-width: 1200px;
@@ -95,14 +98,14 @@
 		padding: 0 30px;
 	}
 	@media screen and (max-width: 640px) {
-		padding: 0 ;
+		padding: 0;
 	}
 }
 
-.transition_cards{
-	transition: .5s all linear;
+.transition_cards {
+	transition: 0.5s all linear;
 
-	@media screen and (max-width:724px ){
-	transition: .2s all linear;
+	@media screen and (max-width: 724px) {
+		transition: 0.2s all linear;
 	}
 }

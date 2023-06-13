@@ -1,13 +1,10 @@
 'use client';
 import './globals.scss';
-import { Inter } from 'next/font/google';
+import { Golos_Text, Inter } from 'next/font/google';
 import { Providers } from './providers';
+import React from 'react';
 
-const inter = Inter({ subsets: ['cyrillic'] });
-
-// export const metadata = {
-// 	title: 'Хумо Орзу',
-// };
+const inter = Golos_Text({ subsets: ['cyrillic'] });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (

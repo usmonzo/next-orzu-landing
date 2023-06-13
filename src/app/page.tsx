@@ -1,16 +1,17 @@
-import Header from "@/components/Header/Header";
-import Merchants from "@/components/Merchants/Merchants";
-import Navbar from "@/components/Navbar/Navbar";
-import PreFooterSection from "@/components/PreFooterSection/PreFooterSection";
-import FaqSection from "@/components/FAQ/FaqSection";
+import Header from '@/components/Header/Header';
+import Merchants from '@/components/Merchants/Merchants';
+import Navbar from '@/components/Navbar/Navbar';
+import PreFooterSection from '@/components/PreFooterSection/PreFooterSection';
+import FaqSection from '@/components/FAQ/FaqSection';
+import Head from 'next/head';
 
 export default function Home() {
-  return (
-    <>
-      <Header />
-      <Merchants />
-      <PreFooterSection />
-      <FaqSection />
-    </>
-  );
+	return (
+		<>
+			<Header />
+			<Merchants />
+			<PreFooterSection />
+			<FaqSection />
+		</>
+	);
 }

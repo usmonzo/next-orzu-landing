@@ -6,27 +6,41 @@ interface Props {
   text: string;
   aligned?: any;
   justify?: any;
-  onClick?: Function;
+  onClick?: any;
   zIndex?: number;
   isDisabled?: boolean;
+  isLoading?: boolean;
 }
 interface IComponent {
   justifySelf: any;
   align: any;
-  disabled: boolean | any;
+  zIndex?: number;
+  isDisabled?: boolean;
+  isLoading?: boolean;
+  onClick?: any;
 }
-export const PrimaryButtonContainer = styled.button<IComponent>`
+const buttonProps = {
+  color: "#323438",
+  borderRadius: "16px",
+  fontSize: "1.2rem",
+  fontWeight: "800",
+  size: "lg",
+  border: "1px solid transparent",
+  // focusBorderColor: "transparent",
+  zIndex: 1,
+};
+export const PrimaryButtonContainer = styled(Button)<IComponent>`
   cursor: pointer;
   padding: 17px 30px;
   gap: 12px;
   border-radius: 50px;
-  background-color: #ff6200;
-  border: none;
+  background: #ff6200 !important;
   font-weight: 500;
   font-size: 1.2rem;
   line-height: 20px;
   text-align: center;
   color: #ffffff;
+
   z-index: ${(props: any) => props.zIndex || 1};
   align-self: ${(props: any) => props.align || ""};
   justify-self: ${(props: any) => props.justifySelf || ""};
@@ -40,7 +54,10 @@ const PrimaryButton = (props: Props) => {
     <PrimaryButtonContainer
       align={props.aligned}
       justifySelf={props.justify}
-      disabled={props.isDisabled}
+      isDisabled={props.isDisabled}
+      isLoading={props.isLoading}
+      onClick={props.onClick}
+      {...buttonProps}
     >
       {props.text}
     </PrimaryButtonContainer>

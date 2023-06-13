@@ -1,12 +1,10 @@
 section {
-	/* height: 100vh; */
 	background: #16191d;
 	z-index: 10;
 }
 .merch-container {
 	max-width: 1200px;
 	margin: 0 auto;
-	//padding: 0 30px;
 	padding: 40px 18px 140px 18px;
 	display: flex;
 	flex-direction: column;
@@ -25,12 +23,8 @@ section {
 	font-size: 7rem;
 	line-height: 100%;
 	text-align: center;
-	//background: linear-gradient(180deg, #d6d6d7 0%, #393b3e 100%);
-	//-webkit-background-clip: text;
-	//-webkit-text-fill-color: transparent;
-	//background-clip: text;
-	//position: sticky;
-margin-top: -450px;
+	color: #d6d6d7;
+	margin-top: -450px;
 
 	@media screen and (max-width: 1077px) {
 		font-weight: 800;
@@ -74,14 +68,13 @@ margin-top: -450px;
 	margin-bottom: 45px;
 }
 .merch-icon {
-	 width: 80px;
-	 height: 80px;
+	width: 80px;
+	height: 80px;
 
 	@media screen and (max-width: 900px) {
 		width: 60px;
 		height: 60px;
 		margin-bottom: 5px;
-		//transform: scale(0.4);
 	}
 	@media screen and (max-width: 500px) {
 		width: 40px;

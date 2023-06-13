@@ -34,10 +34,10 @@
 	padding-right: 20px;
 
 	@media screen and (max-width: 1077px) {
-		gap:80px;
+		gap: 80px;
 	}
 	@media screen and (max-width: 500px) {
-	padding-top: 70px;
+		padding-top: 70px;
 		gap: 60px;
 	}
 }
@@ -73,11 +73,9 @@
 	}
 	@media screen and (max-width: 890px) {
 		font-size: 3.5rem;
-
 	}
 	@media screen and (max-width: 400px) {
 		font-size: 3.1rem;
-
 	}
 }
 .white_box {
@@ -95,12 +93,11 @@
 	padding: 40px;
 	z-index: 2;
 
-		.white_box_horizontal{
-			display: flex;
-			flex-direction: column;
-			gap: 20px;
-
-		}
+	.white_box_horizontal {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
 	@media screen and (max-width: 1000px) {
 		gap: 0;
 		min-height: 565px;
@@ -112,13 +109,12 @@
 		min-height: 400px;
 		gap: 0;
 
-
 		.white_box_headline {
 			font-size: 6rem;
 			margin-bottom: 20px;
 		}
 		.white_box_paragraph {
-			margin-top:20px ;
+			margin-top: 20px;
 			margin-bottom: 30px;
 		}
 	}
@@ -133,7 +129,6 @@
 		}
 	}
 	@media screen and (max-width: 355px) {
-
 		.white_box_headline {
 			font-size: 4.5rem;
 			margin-bottom: 10px;
@@ -163,21 +158,21 @@
 		max-width: 558px;
 		width: 100%;
 		min-height: 400px;
-
 	}
 	@media screen and (max-width: 450px) {
 		padding: 20px;
 	}
 }
-.blue_box_text{
+.blue_box_text {
 	font-style: normal;
-	font-weight: 700;
+	font-weight: 800;
 	font-size: 7rem;
 	line-height: 100%;
-	color: #FFFFFF;
-	@media screen and (max-width: 1077px){
+	color: #ffffff;
+	@media screen and (max-width: 1077px) {
 		font-size: 5rem;
-	}@media screen and (max-width: 890px){
+	}
+	@media screen and (max-width: 890px) {
 		font-size: 3.8rem;
 	}
 }
@@ -233,7 +228,6 @@
 	//transform: translate3d(0px,-500px,0px);
 	//z-index: 1;
 
-
 	@media screen and (max-width: 1077px) {
 		font-size: 3.25rem;
 	}
@@ -244,7 +238,7 @@
 		font-size: 2.4rem;
 	}
 }
-.white_box_timer_headline{
+.white_box_timer_headline {
 	font-family: inherit;
 	font-size: 4.25rem;
 	font-weight: 900;
@@ -263,15 +257,14 @@
 	width: 100%;
 	padding: 40px;
 	overflow: hidden;
-//z-index: 2;
-
+	//z-index: 2;
 
 	@media screen and (max-width: 890px) {
 		min-height: 400px;
 		max-width: 558px;
 		height: 100%;
 
-		.white_box_timer_headline{
+		.white_box_timer_headline {
 			font-size: 3.25rem;
 			font-weight: 800;
 			color: #323438;
@@ -280,18 +273,18 @@
 	}
 	@media screen and (max-width: 450px) {
 		padding: 20px;
-		.white_box_timer_headline{
+		.white_box_timer_headline {
 			font-size: 2.5rem;
 			font-weight: 800;
 			color: #323438;
 			margin-top: 20px;
 		}
-		.white_box_timer_span{
+		.white_box_timer_span {
 			font-weight: 700;
 		}
 	}
 }
-.white_box_timer_icon{
+.white_box_timer_icon {
 	position: absolute;
 	max-width: 371.36px;
 	width: 100%;

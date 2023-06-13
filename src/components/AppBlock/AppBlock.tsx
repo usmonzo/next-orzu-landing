@@ -8,6 +8,7 @@ import qrCode from "../../../public/assets/qrCode.svg";
 import orzuTheme from "../../../public/assets/orzuTheme2.svg";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 export const AppBlock = () => {
   const [onView, setOnView] = useState(false);
@@ -17,6 +18,7 @@ export const AppBlock = () => {
       setOnView(true);
     }
   });
+
   return (
     <div className={styles.app_color_block}>
       <div className={styles.app_text_container}>

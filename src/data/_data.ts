@@ -27,7 +27,10 @@ export const citiesListData = [
 ];
 
 export const projectType = [
-  { label: "Оформление орзу", value: 1, id: 1 },
-  // { label: "Повысить лимит орзу", value: 2, id: 2 },
-  // { label: "Оформление стандарт/проект кредита ", value: 3, id: 3 },
+  { label: "Оформление Орзу", value: 1, disabled: false },
+  {
+    label: "Повысить лимит Орзу (в разработке)",
+    value: 2,
+    disabled: true,
+  },
 ];

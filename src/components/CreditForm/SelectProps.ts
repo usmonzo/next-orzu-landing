@@ -145,6 +145,8 @@ export const secondSelectStyle = {
         ? "#ffffff"
         : props.isFocused
         ? "#090909"
+        : props.isDisabled
+        ? "#BEC1C7"
         : "#8B97A7",
       fontWeight: "800",
       // cursor: isDisabled ? "not-allowed" : "default",
@@ -157,8 +159,8 @@ export const secondSelectStyle = {
       msOverflowStyle: "none",
 
       "&:hover": {
-        background: !props.isSelected ? "#e2e4e9" : "",
-        color: !props.isSelected ? "#090909" : "",
+        background: !props.isSelected && !props.isDisabled ? "#e2e4e9" : "",
+        color: !props.isSelected && !props.isDisabled ? "#090909" : "",
       },
 
       ":active": {
