@@ -10,6 +10,7 @@ interface Props {
   zIndex?: number;
   isDisabled?: boolean;
   isLoading?: boolean;
+  padding?: string;
 }
 interface IComponent {
   justifySelf: any;
@@ -18,6 +19,7 @@ interface IComponent {
   isDisabled?: boolean;
   isLoading?: boolean;
   onClick?: any;
+  padding?: string;
 }
 const buttonProps = {
   color: "#323438",
@@ -31,7 +33,7 @@ const buttonProps = {
 };
 export const PrimaryButtonContainer = styled(Button)<IComponent>`
   cursor: pointer;
-  padding: 17px 30px;
+  padding: ${(props: IComponent) => props.padding || "17px 30px"};
   gap: 12px;
   border-radius: 50px;
   background: #ff6200 !important;
@@ -57,6 +59,7 @@ const PrimaryButton = (props: Props) => {
       isDisabled={props.isDisabled}
       isLoading={props.isLoading}
       onClick={props.onClick}
+      padding={props.padding}
       {...buttonProps}
     >
       {props.text}

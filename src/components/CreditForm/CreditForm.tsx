@@ -134,11 +134,12 @@ export default function CreditForm() {
                     paddingRight={3}
                   />
                   <Input
+                    p={"20px 0"}
                     _focus={{ borderColor: "black", outline: "none" }}
                     size={"lg"}
                     maxLength={9}
                     focusBorderColor={"transparent"}
-                    fontWeight={700}
+                    fontWeight={800}
                     name={"phone"}
                     onChange={(e) => handlePhoneChange(e)}
                     placeholder="Номер телефона"

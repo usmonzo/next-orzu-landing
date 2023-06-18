@@ -1,15 +1,5 @@
 .form_section {
 	background: none;
-	padding: 90px 0;
-	@media screen and (max-width: 1077px) {
-		padding: 70px 0;
-	}
-	@media screen and (max-width: 700px) {
-		padding: 60px 0;
-	}
-	@media screen and (max-width: 600px) {
-		padding: 50px 0;
-	}
 }
 .form_container {
 	position: relative;
@@ -21,6 +11,7 @@
 	background: #f1f2f4;
 	border-radius: 56px;
 	overflow: hidden;
+	margin: 90px 0;
 
 	@media screen and (max-width: 1077px) {
 		margin: 70px 0;

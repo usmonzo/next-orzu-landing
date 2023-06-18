@@ -7,6 +7,7 @@ import bank from "../../../public/assets/bank.svg";
 import WhiteButton from "@/components/Buttons/WhiteButton";
 import CreditForm from "@/components/CreditForm/CreditForm";
 import { AppBlock } from "@/components/AppBlock/AppBlock";
+import { MerchantAd } from "@/components/MerchantFormComponents/MerchantAd";
 
 export default function PreFooterSection() {
   return (
@@ -39,6 +40,7 @@ export default function PreFooterSection() {
           </div>
         </div>
         <CreditForm />
+        <MerchantAd />
         <AppBlock />
       </div>
     </section>
