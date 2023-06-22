@@ -22,11 +22,6 @@ export const customSelectStyles = {
     fontSize: "1.2rem",
     fontWeight: "800",
     zIndex: 4,
-
-    // "&:hover": {
-    //   borderColor: "red",
-    //   color: "red",
-    // },
     "&:hover": {
       border: "1px solid #030303",
     },
@@ -187,5 +182,105 @@ export const secondSelectStyle = {
   dropdownIndicator: (base: any) => ({
     ...base,
     color: "#333333",
+  }),
+};
+
+export const customMerchantSelectStyles = {
+  control: (provided: any, state: any) => ({
+    ...provided,
+    height: "66px",
+    cursor: "pointer",
+    width: "100%",
+    minWidth: "250px",
+    border: "1px solid #E0E0E0",
+    padding: "13px 18px",
+    background: "#D7DAE0",
+    borderRadius: "16px",
+    fontSize: "1.3rem",
+    fontWeight: "800",
+    zIndex: 10,
+    "&:hover": {
+      border: "1px solid #030303",
+    },
+    "@media screen and (max-width: 890px)": {
+      fontSize: "1.2rem",
+    },
+    "::placeholder": {
+      color: "red",
+    },
+  }),
+  dropdownIndicator: (base: any) => ({
+    ...base,
+    color: "#333333",
+  }),
+  option: (styles: any, props: ISelectProps) => {
+    const color = chroma("#D7DAE0");
+    return {
+      ...styles,
+      backgroundColor: props.isSelected
+        ? "#323438"
+        : props.isFocused
+        ? "#e2e4e9"
+        : "",
+      color: props.isSelected
+        ? "#ffffff"
+        : props.isFocused
+        ? "#090909"
+        : "#8B97A7",
+      fontWeight: "800",
+      // cursor: isDisabled ? "not-allowed" : "default",
+      height: "50px",
+      zIndex: 4,
+      display: "flex",
+      alignItems: "center",
+      borderRadius: "12px",
+      fontSize: "1.2rem",
+
+      "&:hover": {
+        background: !props.isSelected ? "#e2e4e9" : "",
+        color: !props.isSelected ? "#090909" : "",
+      },
+
+      // ":active": {
+      //   ...styles[":active"],
+      //   backgroundColor: !isDisabled
+      //     ? isSelected
+      //       ? data.color
+      //       : color.alpha(0.3).css()
+      //     : undefined,
+      // },
+    };
+  },
+  menuPortal: (base: any) => ({ ...base, zIndex: 5 }),
+  menu: (base: any) => ({
+    ...base,
+    zIndex: 2,
+    borderRadius: "20px",
+    padding: "12px",
+  }),
+  menuList: (base: any) => ({
+    ...base,
+    height: "100%",
+    maxHeight: "210px",
+    // "-ms-overflow-style": "none",
+    // scrollbarWidth: "none",
+    "::-webkit-scrollbar": {
+      display: "none",
+    },
+    "::-webkit-scrollbar-track": {
+      background: "red",
+      display: "none",
+    },
+    "::-webkit-scrollbar-thumb": {
+      background: "#888",
+      display: "none",
+    },
+    "::-webkit-scrollbar-thumb:hover": {
+      display: "none",
+    },
+  }),
+  placeholder: (defaultStyles: any) => ({
+    ...defaultStyles,
+    color: "#9ca3af",
   }),
 };

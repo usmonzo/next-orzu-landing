@@ -1,13 +1,13 @@
 "use client";
 import Calculator from "../Calculator/Calculator";
 import styles from "./PreFooterSection.module.scss";
-import React from "react";
+import React, { Fragment } from "react";
 import Image from "next/image";
 import bank from "../../../public/assets/bank.svg";
 import WhiteButton from "@/components/Buttons/WhiteButton";
 import CreditForm from "@/components/CreditForm/CreditForm";
 import { AppBlock } from "@/components/AppBlock/AppBlock";
-import { MerchantAd } from "@/components/MerchantFormComponents/MerchantAd";
+import { MerchantAd } from "@/components/MerchantsRegistration/MerchantFormComponents/MerchantAd";
 
 export default function PreFooterSection() {
   return (
@@ -39,7 +39,9 @@ export default function PreFooterSection() {
             </div>
           </div>
         </div>
-        <CreditForm />
+        <div id="form" className={styles.form_container}>
+          <CreditForm />
+        </div>
         <MerchantAd />
         <AppBlock />
       </div>

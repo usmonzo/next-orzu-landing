@@ -16,6 +16,7 @@
 	background: rgba(50, 52, 56, 0.6);
 	border-radius: 32px;
 
+
 	@media screen and (max-width:900px ) {
 		max-width: 229px;
 		max-height: 218px;
@@ -31,8 +32,13 @@
 	}
 }
 
+.merch-box:hover{
+	transition: .1s background-color linear;
+	background: rgba(50, 52, 56, 1);
+}
+
 .merch-box-text {
-	font-family: 'Golos', sans-serif;
+	//font-family: 'Golos', sans-serif;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 1.5rem;

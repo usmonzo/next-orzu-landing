@@ -29,7 +29,7 @@ const buttonProps = {
   size: "lg",
   border: "1px solid transparent",
   // focusBorderColor: "transparent",
-  zIndex: 1,
+  // zIndex: 1,
 };
 export const PrimaryButtonContainer = styled(Button)<IComponent>`
   cursor: pointer;
@@ -60,6 +60,7 @@ const PrimaryButton = (props: Props) => {
       isLoading={props.isLoading}
       onClick={props.onClick}
       padding={props.padding}
+      zIndex={props.zIndex}
       {...buttonProps}
     >
       {props.text}

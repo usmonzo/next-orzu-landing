@@ -1,0 +1,161 @@
+.merchant_ad_container{
+  background: #16191D;
+  border-radius: 40px;
+  padding: 80px;
+  margin-bottom: 90px;
+  @media screen and (max-width: 1077px) {
+    margin: 70px 0;
+  }
+  @media screen and (max-width: 700px) {
+    margin: 60px 0;
+  }
+  @media screen and (max-width: 600px) {
+    padding: 60px 70px;
+    margin: 50px 0;
+  }
+  @media screen and (max-width: 520px) {
+    padding: 50px 24px;
+    border-radius: 32px;
+  }
+}
+.merchant_ad_content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.merchant_ad_headline{
+  font-weight: 600;
+  font-size: 4rem;
+  line-height: 100%;
+  text-align: center;
+  color: #FFFFFF;
+}
+.merchant_ad_paragraph{
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 140%;
+  text-align: center;
+  color: #FFFFFF;
+  max-width: 740px;
+}
+.merchant_ad_input {
+  padding: 20px 28px;
+  background: #d7dae0;
+  border-radius: 16px;
+  font-size: 1.4rem;
+  //z-index: 0;
+
+  @media screen and (max-width: 890px) {
+    font-size: 1.2rem;
+  }
+}
+.merchant_ad_input_phone{
+  font-size: 1.4rem;
+  @media screen and (max-width: 890px) {
+    font-size: 1.2rem;
+  }
+}
+.merchant_ad_input_addon{
+  font-size: 1.4rem;
+  justify-self: center;
+  align-self: center;
+
+  @media screen and (max-width: 890px) {
+    font-size: 1.2rem;
+  }
+}
+.merchant_ad_modal_container{
+  max-width: 876px;
+  background: #f1f2f4;
+  //margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  border-radius: 32px;
+  gap: 12px;
+  padding:60px 120px;
+
+  @media screen and (max-width: 880px){
+    padding:60px 90px;
+  }
+  @media screen and (max-width: 880px){
+    padding:60px 90px;
+  }
+  @media screen and (max-width: 750px){
+    padding:60px;
+  }
+  @media screen and (max-width: 520px){
+    padding:40px;
+    //border-radius:24px ;
+  }
+  @media screen and (max-width: 460px){
+    padding:30px;
+  }
+  @media screen and (max-width: 460px){
+    padding:30px 20px;
+  }
+}
+.merchant_modal{
+  position: relative;
+  min-width:100vw;
+  min-height: 100vh;
+  //border-radius: 32px;
+  display: flex;
+justify-content: center;
+  align-items: center;
+  border: 2px solid green;
+  overflow: hidden;
+}
+.modal_headline{
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 100%;
+  text-align: center;
+  color: #16191D;
+  padding-bottom: 24px;
+  text-wrap: none;
+
+  @media screen and (max-width: 880px){
+    font-size: 2.3rem;
+
+  }
+  @media screen and (max-width: 750px){
+    font-size: 2.5rem;
+
+  }
+  @media screen and (max-width: 620px){
+    font-size: 2.3rem;
+
+  }
+  @media screen and (max-width: 620px){
+    font-size: 2rem;
+  }
+}
+
+//.modal_horizontal{
+//  display: flex;
+//  flex-direction: row-reverse;
+//  gap: 12px;
+//  @media screen and (max-width: 880px){
+//  flex-direction: column-reverse;
+//  gap: 12px;
+//
+//  }
+//}
+
+.modal_paragraph{
+  color: #6E7D91;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.64px;
+  padding-bottom:24px ;
+}
+.merchant_modal_logo{
+  position: absolute;
+  z-index: -1;
+  bottom: -262px;
+  right: -174px;
+}

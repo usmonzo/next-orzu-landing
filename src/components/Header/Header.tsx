@@ -14,7 +14,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import Navbar from "@/components/Navbar/Navbar";
 
 const Header = () => {

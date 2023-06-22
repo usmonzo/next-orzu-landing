@@ -34,3 +34,22 @@ export const projectType = [
     disabled: true,
   },
 ];
+
+export const categoriesList = [
+  { label: "Бытовая техника", value: 1 },
+  { label: "Телефоны и аксессуары", value: 2 },
+  { label: "Одежда и обувь", value: 3 },
+  { label: "Мебель и товары для дома", value: 4 },
+  { label: "Компьютеры и оргтехника", value: 5 },
+  { label: "Ювелирные изделия", value: 6 },
+  { label: "Продукты", value: 7 },
+  { label: "Парфюмерия и косметика", value: 8 },
+  { label: "Стройматериалы", value: 9 },
+  { label: "Кафе и рестораны", value: 10 },
+  { label: "Цветы и подарки", value: 11 },
+  { label: "Медицинские услуги и лекарства", value: 12 },
+  { label: "АЗС и автозапчасти", value: 13 },
+  { label: "Образование", value: 14 },
+  { label: "Товары для детей", value: 15 },
+  { label: "Другое", value: 16 },
+];
