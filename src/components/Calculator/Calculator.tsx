@@ -131,13 +131,13 @@ export default function Calculator() {
     [cashInput]
   );
   const handleInputChange = useCallback((e: any) => {
-    if (e.target.value > 50000) {
+    if (e.target.value.length > 5 || parseInt(e.target.value) > 50000) {
       e.target.value = 50000;
-    } else if (cashInput === 0) {
+    } else if (e.target.value.length > 1 && e.target.value[0] == 0) {
       e.target.value = 50;
-      // setCashInput(50);
+      console.log(2);
     }
-    setCashInput(e.target.value.replace(/\D/, ""));
+    setCashInput(e.target.value.replace(/\D/g, ""));
   }, []);
 
   const countingFnc = (percent: number, month: number, cashCount: number) => {
@@ -255,9 +255,6 @@ export default function Calculator() {
                   countOfMonth={dateArray.length}
                   key={idx}
                   activeClass={active === idx}
-                  // className={styles.month_container_active}
-                  // 90% all containers width
-                  // dataArray.length is count of containers
                   onClick={() => {
                     date.count === 15
                       ? radioHandleChange(date.percent, 1, date.word)
