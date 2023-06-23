@@ -34,7 +34,6 @@ const buttonProps = {
 export const PrimaryButtonContainer = styled(Button)<IComponent>`
   cursor: pointer;
   padding: ${(props: IComponent) => props.padding || "17px 30px"};
-  gap: 12px;
   border-radius: 50px;
   background: #ff6200 !important;
   font-weight: 500;
@@ -47,8 +46,14 @@ export const PrimaryButtonContainer = styled(Button)<IComponent>`
   align-self: ${(props: any) => props.align || ""};
   justify-self: ${(props: any) => props.justifySelf || ""};
 
-  @media screen and (max-width: 735px) {
+  @media screen and (max-width: 1024px) {
     font-size: 1rem;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 0.8rem;
+  }
+  @media screen and (max-width: 500px) {
+    padding: 0 30px;
   }
 `;
 const PrimaryButton = (props: Props) => {

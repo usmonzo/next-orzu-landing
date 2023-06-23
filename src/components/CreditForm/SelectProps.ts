@@ -204,6 +204,12 @@ export const customMerchantSelectStyles = {
     },
     "@media screen and (max-width: 890px)": {
       fontSize: "1.2rem",
+      height: "auto",
+      padding: "10px 18px",
+    },
+    "@media screen and (max-width: 500px)": {
+      fontSize: "1rem",
+      padding: "4px 18px",
     },
     "::placeholder": {
       color: "red",

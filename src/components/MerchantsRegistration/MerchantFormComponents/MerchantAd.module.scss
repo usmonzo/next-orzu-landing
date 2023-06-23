@@ -30,6 +30,14 @@
   line-height: 100%;
   text-align: center;
   color: #FFFFFF;
+
+  @media screen and (max-width: 900px) {
+    font-size: 3rem;
+  }
+  @media screen and (max-width: 600px) {
+    font-weight: 700;
+    font-size: 2.5rem;
+  }
 }
 .merchant_ad_paragraph{
   font-weight: 400;
@@ -38,6 +46,11 @@
   text-align: center;
   color: #FFFFFF;
   max-width: 740px;
+
+  @media screen and (max-width: 900px) {
+    font-size: 1rem;
+  }
+
 }
 .merchant_ad_input {
   padding: 20px 28px;
@@ -48,12 +61,20 @@
 
   @media screen and (max-width: 890px) {
     font-size: 1.2rem;
+    padding: 16px 20px;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 1rem;
+    padding: 12px 20px;
   }
 }
 .merchant_ad_input_phone{
   font-size: 1.4rem;
   @media screen and (max-width: 890px) {
     font-size: 1.2rem;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 1rem;
   }
 }
 .merchant_ad_input_addon{
@@ -63,6 +84,9 @@
 
   @media screen and (max-width: 890px) {
     font-size: 1.2rem;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 1rem;
   }
 }
 .merchant_ad_modal_container{
@@ -75,19 +99,18 @@
   border-radius: 32px;
   gap: 12px;
   padding:60px 120px;
+  margin: 0 12px;
 
-  @media screen and (max-width: 880px){
-    padding:60px 90px;
-  }
   @media screen and (max-width: 880px){
     padding:60px 90px;
   }
   @media screen and (max-width: 750px){
     padding:60px;
+    gap: 10px;
   }
   @media screen and (max-width: 520px){
     padding:40px;
-    //border-radius:24px ;
+    border-radius:24px ;
   }
   @media screen and (max-width: 460px){
     padding:30px;
@@ -104,7 +127,6 @@
   display: flex;
 justify-content: center;
   align-items: center;
-  border: 2px solid green;
   overflow: hidden;
 }
 .modal_headline{
@@ -129,7 +151,8 @@ justify-content: center;
 
   }
   @media screen and (max-width: 620px){
-    font-size: 2rem;
+    font-size: 1.5rem;
+    padding-bottom: 4px;
   }
 }
 
@@ -152,10 +175,37 @@ justify-content: center;
   line-height: 100%;
   letter-spacing: -0.64px;
   padding-bottom:24px ;
+
+  @media screen and (max-width: 500px) {
+    padding-bottom: 4px;
+  }
 }
 .merchant_modal_logo{
   position: absolute;
   z-index: -1;
   bottom: -262px;
   right: -174px;
+
+  @media screen and (max-width: 640px){
+    bottom: -200px;
+    right: -174px;
+  }
+  @media screen and (max-width: 500px){
+    bottom: -150px;
+    right: -130px;
+  }
+  @media screen and (max-width: 500px){
+    bottom: -150px;
+    right: -130px;
+  }
+}
+
+.pin_input_item{
+  width: 72px;
+  height: 72px;
+
+  @media screen and (max-width: 500px){
+    width: 52px;
+    height: 52px;
+  }
 }

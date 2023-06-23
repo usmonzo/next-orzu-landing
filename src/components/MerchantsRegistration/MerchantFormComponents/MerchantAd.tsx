@@ -57,8 +57,8 @@ const PinInputFieldProps = {
   border: "1px solid transparent",
   focusBorderColor: "red",
   zIndex: 3,
-  width: "72px",
-  height: "72px",
+  // width: "72px",
+  // height: "72px",
   _focusVisible: {},
 };
 export const MerchantAd = () => {
@@ -153,7 +153,14 @@ export const MerchantAd = () => {
 
   useEffect(() => {
     setDataStatus("idle");
-    console.log(222222223232323232);
+    setMerchantDataToSend({
+      type_of_client: "",
+      full_name: "",
+      company_name: "",
+      address: "",
+      phone: "",
+      industry: "",
+    });
   }, [!isOpen]);
 
   return (
@@ -182,23 +189,49 @@ export const MerchantAd = () => {
           maxWidth={dataStatus !== "success" ? "500px" : "876px"}
         >
           <div className={styles.merchant_ad_modal_container}>
-            {dataStatus === "success" && (
+            {dataStatus === "success" ? (
               <>
                 <h1 className={styles.modal_headline}>Подтверждение номера</h1>
                 <p className={styles.modal_paragraph}>
                   Мы отправили код подтверждения на указанный номер телефона
                 </p>
               </>
-            )}
+            ) : dataStatus === "error" ? (
+              <>
+                <h1 className={styles.modal_headline}>Неправильные данные</h1>
+                <p className={styles.modal_paragraph}>
+                  Неправильно указан номер телефона. Проверьте количество
+                  символов и повторите попытку
+                </p>
+                <PrimaryButton
+                  text={"Подключить"}
+                  padding={"25px 60px"}
+                  isLoading={isFormLoading}
+                  onClick={() => setDataStatus("")}
+                  zIndex={0}
+                />
+              </>
+            ) : null}
             <ModalCloseButton color={"#000"} />
-            {/*{isFormError ?  : 2}*/}
             {dataStatus === "success" ? (
               <HStack justifyContent={"center"}>
                 <PinInput size={"lg"} autoFocus>
-                  <PinInputField {...PinInputFieldProps} />
-                  <PinInputField {...PinInputFieldProps} />
-                  <PinInputField {...PinInputFieldProps} />
-                  <PinInputField {...PinInputFieldProps} />
+                  <PinInputField
+                    {...PinInputFieldProps}
+                    className={styles.pin_input_item}
+                  />
+                  <PinInputField
+                    {...PinInputFieldProps}
+                    className={styles.pin_input_item}
+                  />
+                  <PinInputField
+                    {...PinInputFieldProps}
+                    className={styles.pin_input_item}
+                  />
+                  <PinInputField
+                    {...PinInputFieldProps}
+                    className={styles.pin_input_item}
+                  />
                 </PinInput>
               </HStack>
             ) : dataStatus === "loading" ? (
@@ -236,7 +269,11 @@ export const MerchantAd = () => {
                   value={merchantDataToSend.address ?? ""}
                   {...inputProps}
                 />
-                <InputGroup {...inputProps} justifyItems={"center"}>
+                <InputGroup
+                  {...inputProps}
+                  justifyItems={"center"}
+                  className={styles.merchant_ad_input}
+                >
                   <InputLeftAddon
                     color={"black"}
                     children={"+992"}
@@ -247,7 +284,7 @@ export const MerchantAd = () => {
                     h={"100%"}
                     isDisabled={isFormLoading}
                     className={styles.merchant_ad_input_phone}
-                    p={"20px 28px"}
+                    p={"0 12px"}
                     maxLength={9}
                     fontWeight={800}
                     name={"phone"}
@@ -288,25 +325,26 @@ export const MerchantAd = () => {
                   />
                 )}
                 <PrimaryButton
+                  isDisabled={
+                    merchantDataToSend.industry === "" ||
+                    merchantDataToSend.phone.length !== 9 ||
+                    merchantDataToSend.address === "" ||
+                    merchantDataToSend.company_name === ""
+                  }
                   text={"Подключить"}
                   padding={"25px 60px"}
                   isLoading={isFormLoading}
                   onClick={() => postFormData("merchant", merchIndustry)}
                   zIndex={0}
                 />
-                {/*<ModalFooter*/}
-                {/*  justifyContent={"center"}*/}
-                {/*  zIndex={0}*/}
-                {/*  paddingBottom={0}*/}
-                {/*>*/}
-                {/* */}
-                {/*</ModalFooter>*/}
               </>
+            ) : dataStatus === "error" ? (
+              <></>
             ) : null}
           </div>
           <Image
             src={logoBackground}
-            alt={"2222"}
+            alt={"HUMO"}
             className={styles.merchant_modal_logo}
           />
         </ModalContent>
