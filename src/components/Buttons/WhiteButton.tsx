@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 interface Props {
   text?: string;
-  onClick: any;
+  onClick?: any;
   alignSelf?: any;
 }
 
