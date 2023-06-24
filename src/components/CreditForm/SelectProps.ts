@@ -241,20 +241,16 @@ export const customMerchantSelectStyles = {
       alignItems: "center",
       borderRadius: "12px",
       fontSize: "1.2rem",
-
       "&:hover": {
         background: !props.isSelected ? "#e2e4e9" : "",
         color: !props.isSelected ? "#090909" : "",
       },
-
-      // ":active": {
-      //   ...styles[":active"],
-      //   backgroundColor: !isDisabled
-      //     ? isSelected
-      //       ? data.color
-      //       : color.alpha(0.3).css()
-      //     : undefined,
-      // },
+      "@media screen and (max-width: 890px)": {
+        fontSize: "1rem",
+      },
+      "@media screen and (max-width: 500px)": {
+        fontSize: ".9rem",
+      },
     };
   },
   menuPortal: (base: any) => ({ ...base, zIndex: 5 }),

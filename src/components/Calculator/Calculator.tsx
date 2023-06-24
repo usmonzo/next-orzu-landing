@@ -12,6 +12,7 @@ import { useCallback, useState } from "react";
 import { currencyArray, dateArray } from "@/data/_data";
 import styled from "@emotion/styled";
 
+
 interface IRadioProps {
   activeClass?: any;
   countOfMonth: number;
@@ -112,7 +113,6 @@ export default function Calculator() {
   const [cashInput, setCashInput] = useState(1000);
   const [percent, setPercent] = useState(2);
   const [term, setTerm] = useState(1);
-  const [termWord, setTermWord] = useState("дней");
   const [active, setActive] = useState(0);
 
   const handleSliderChange = useCallback(
@@ -133,7 +133,7 @@ export default function Calculator() {
   const handleInputChange = useCallback((e: any) => {
     if (e.target.value.length > 5 || parseInt(e.target.value) > 50000) {
       e.target.value = 50000;
-    } else if (e.target.value.length > 1 && e.target.value[0] == 0) {
+    } else if (e.target.value.length > 0 && e.target.value[0] == 0) {
       e.target.value = 50;
       console.log(2);
     }
@@ -141,18 +141,14 @@ export default function Calculator() {
   }, []);
 
   const countingFnc = (percent: number, month: number, cashCount: number) => {
+    month = Math.ceil(month);
     const result = (cashCount * (100 + percent)) / 100 / month;
     return result.toFixed(2);
   };
 
-  const radioHandleChange = (
-    percentage: number,
-    month: number,
-    word: string
-  ) => {
+  const radioHandleChange = (percentage: number, month: number) => {
     setTerm(month);
     setPercent(percentage);
-    setTermWord(word);
   };
   return (
     <>
@@ -256,15 +252,13 @@ export default function Calculator() {
                   key={idx}
                   activeClass={active === idx}
                   onClick={() => {
-                    date.count === 15
-                      ? radioHandleChange(date.percent, 1, date.word)
-                      : radioHandleChange(date.percent, date.count, date.word);
+                    radioHandleChange(date.percent, date.count);
                     setActive(idx);
-                    console.log(active);
+                    // console.log(active);
                   }}
                 >
-                  <p>{date.count}</p>
-                  <p>{date.percent < 3 ? "дней" : "мес"}</p>
+                  <p>{date.count < 1 ? 15 : date.count}</p>
+                  <p>{date.count < 1 ? "дней" : "мес"}</p>
                 </MonthsContainerChild>
               ))}
             </MonthsContainerGap>
@@ -273,7 +267,7 @@ export default function Calculator() {
       </div>
       <div className={styles.sum_container}>
         <div className={styles.sum_headline}>
-          <span>Ваш ежемесячный платеж</span>
+          <span>Ваш {term > 1 && "ежемесячный"} платеж</span>
           <h1>{countingFnc(percent, term, cashInput)} сомони</h1>
         </div>
         <div className={styles.sum_description}>
@@ -288,9 +282,7 @@ export default function Calculator() {
           <div className={styles.sum_description_box}>
             <p>Срок</p>
             <h2 style={{ maxWidth: "245px", width: "100%" }}>
-              {termWord === "дней"
-                ? 15 + " " + termWord
-                : term + " " + termWord}
+              {term >= 1 ? term + " мес." : "15 дней"}
             </h2>
           </div>
         </div>

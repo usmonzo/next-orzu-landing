@@ -2,16 +2,19 @@
 import styled from "@emotion/styled";
 
 interface Props {
-  text: string;
+  text?: string;
+  onClick: any;
+  alignSelf?: any;
 }
 
-export const WhiteButtonContainer = styled.button`
+export const WhiteButtonContainer = styled.button<Props>`
   padding: 20px 40px;
   max-width: 339px;
   width: 100%;
   background: #ffffff;
   border-radius: 50px;
   z-index: 2;
+  align-self: ${(props: Props) => props.alignSelf};
 
   p {
     font-family: "Golos", sans-serif;
@@ -35,7 +38,7 @@ export const WhiteButtonContainer = styled.button`
 `;
 const WhiteButton = (props: Props) => {
   return (
-    <WhiteButtonContainer>
+    <WhiteButtonContainer onClick={props.onClick} alignSelf={props.alignSelf}>
       <p>{props.text}</p>
     </WhiteButtonContainer>
   );

@@ -3,14 +3,11 @@ import styles from "./MerchantAd.module.scss";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import {
   Modal,
-  ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
   ModalOverlay,
 } from "@chakra-ui/modal";
 import {
-  Button,
   HStack,
   Input,
   InputGroup,
@@ -28,43 +25,17 @@ import { useMutation } from "@tanstack/react-query";
 import apiClient from "@/utils/axios/http-common";
 import Image from "next/image";
 import logoBackground from "../../../../public/assets/backGroundLogo.svg";
+import {
+  inputProps,
+  PinInputFieldProps,
+} from "@/components/MerchantsRegistration/MerchantFormComponents/CustomProps";
+import WhiteButton from "@/components/Buttons/WhiteButton";
+import { VscError } from "react-icons/vsc";
+import { BiSolidErrorCircle } from "react-icons/bi";
 
-const inputProps = {
-  variant: "unstyled",
-  _active: {},
-  _focus: { borderColor: "black", outline: "none" },
-  _hover: { border: "1px solid #030303" },
-  color: "#323438",
-  bg: "#D7DAE0",
-  borderRadius: "16px",
-  fontSize: "1.2rem",
-  fontWeight: "800",
-  // size: "lg",
-  border: "1px solid transparent",
-  focusBorderColor: "transparent",
-  paddingLeft: 5,
-  zIndex: 3,
-};
-const PinInputFieldProps = {
-  _active: {},
-  _focus: { borderColor: "black", outline: "none" },
-  _hover: { border: "1px solid #030303" },
-  color: "#323438",
-  bg: "#D7DAE0",
-  borderRadius: "16px",
-  fontSize: "1.5rem",
-  fontWeight: "800",
-  border: "1px solid transparent",
-  focusBorderColor: "red",
-  zIndex: 3,
-  // width: "72px",
-  // height: "72px",
-  _focusVisible: {},
-};
 export const MerchantAd = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const id = useId();
-  const [body, setBody] = useState<HTMLElement | null>();
   const [categoriesListData, setCategoriesListData] = useState<any[]>([]);
   const [merchantDataToSend, setMerchantDataToSend] = useState({
     type_of_client: "",
@@ -75,13 +46,17 @@ export const MerchantAd = () => {
     industry: "",
   });
   const [merchIndustry, setMerchIndustry] = useState<any>("");
+  const [codeOtpToSend, setCodeOtpToSend] = useState("");
   const [dataStatus, setDataStatus] = useState("idle");
+  const [otpCheckStatus, setOtpCheckStatus] = useState("idle");
+  const [phoneIsRegistered, setPhoneIsRegistered] = useState(false);
 
   const {
     status,
     isLoading: isFormLoading,
     mutate: postFormData,
     isError: isFormError,
+    isIdle: isFormIdle,
   } = useMutation(
     async (type_of_client: string) => {
       return await apiClient.post(`/landing/sendApplication`, {
@@ -104,18 +79,69 @@ export const MerchantAd = () => {
           data: res.data,
         };
         console.log(result);
-        // setPostResult(fortmatResponse(result));
+        setOtpCheckStatus("idle");
       },
       onError: (err) => {
-        // setPostResult(fortmatResponse(err.response?.data || err));
         console.log(err);
       },
     }
   );
 
+  const {
+    status: OtpStatus,
+    isLoading: isOtpLoading,
+    mutate: otpCodeSend,
+    isError: isOtpError,
+  } = useMutation(
+    async (queries: IOtpRequest) => {
+      return await apiClient.post(
+        `/landing/checkOtp?phone=${queries.data.phone}&code=${queries.data.otp}`,
+        {}
+      );
+    },
+    {
+      onSuccess: (res) => {
+        //        const result = {
+        //          status: res.status + "-" + res.statusText,
+        //          headers: res.headers,
+        //          data: res.data,
+        //        };
+        setCodeOtpToSend("");
+        console.log(res);
+        setPhoneIsRegistered(false);
+      },
+      onError: (err: any) => {
+        const errCode = err.response.status;
+        if (errCode === 409) {
+          setDataStatus("idle");
+          setPhoneIsRegistered(true);
+        }
+        setCodeOtpToSend("");
+      },
+    }
+  );
+  interface IOtpRequest {
+    data: {
+      phone: string;
+      otp: string;
+    };
+  }
+  const handleOtpChange = (e: any) => {
+    setCodeOtpToSend(e);
+  };
+  const otpHandleSubmit = (code: any) => {
+    if (code.length > 3) {
+      otpCodeSend({
+        data: {
+          phone: merchantDataToSend.phone,
+          otp: code,
+        },
+      });
+    }
+  };
+
   useEffect(() => {
     setCategoriesListData(categoriesList);
-    // setBody(document.getElementById("form"));
   }, []);
 
   const handleSelectChange = (e: any) => {
@@ -124,17 +150,18 @@ export const MerchantAd = () => {
         ...merchantDataToSend,
         ["industry"]: e.label,
       });
-      // console.log(merchantDataToSend.industry);
+      setPhoneIsRegistered(false);
     }
   };
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPhoneIsRegistered(false);
     setMerchantDataToSend({
       ...merchantDataToSend,
       [e.target.name]: e.target.value,
     });
-    // console.log(merchantDataToSend);
   };
   const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPhoneIsRegistered(false);
     setMerchantDataToSend({
       ...merchantDataToSend,
       [e.target.name]: e.target.value.replace(/\D/g, ""),
@@ -142,17 +169,22 @@ export const MerchantAd = () => {
   };
 
   useEffect(() => {
-    if (status === "loading") {
-      setDataStatus("loading");
-    } else if (status === "success") {
-      setDataStatus("success");
-    } else if (status === "error") {
-      setDataStatus("error");
-    }
+    // if (status === "loading") {
+    //   setDataStatus("loading");
+    // } else if (status === "success") {
+    //   setDataStatus("success");
+    // } else if (status === "error") {
+    //   setDataStatus("error");
+    // }
+    setDataStatus(status);
   }, [status, isOpen]);
+  useEffect(() => {
+    setOtpCheckStatus(OtpStatus);
+  }, [OtpStatus, isOpen]);
 
   useEffect(() => {
     setDataStatus("idle");
+    setOtpCheckStatus("idle");
     setMerchantDataToSend({
       type_of_client: "",
       full_name: "",
@@ -189,51 +221,60 @@ export const MerchantAd = () => {
           maxWidth={dataStatus !== "success" ? "500px" : "876px"}
         >
           <div className={styles.merchant_ad_modal_container}>
-            {dataStatus === "success" ? (
-              <>
-                <h1 className={styles.modal_headline}>Подтверждение номера</h1>
-                <p className={styles.modal_paragraph}>
-                  Мы отправили код подтверждения на указанный номер телефона
-                </p>
-              </>
-            ) : dataStatus === "error" ? (
-              <>
-                <h1 className={styles.modal_headline}>Неправильные данные</h1>
-                <p className={styles.modal_paragraph}>
-                  Неправильно указан номер телефона. Проверьте количество
-                  символов и повторите попытку
-                </p>
-                <PrimaryButton
-                  text={"Подключить"}
-                  padding={"25px 60px"}
-                  isLoading={isFormLoading}
-                  onClick={() => setDataStatus("")}
-                  zIndex={0}
-                />
-              </>
-            ) : null}
             <ModalCloseButton color={"#000"} />
             {dataStatus === "success" ? (
-              <HStack justifyContent={"center"}>
-                <PinInput size={"lg"} autoFocus>
-                  <PinInputField
-                    {...PinInputFieldProps}
-                    className={styles.pin_input_item}
-                  />
-                  <PinInputField
-                    {...PinInputFieldProps}
-                    className={styles.pin_input_item}
-                  />
-                  <PinInputField
-                    {...PinInputFieldProps}
-                    className={styles.pin_input_item}
-                  />
-                  <PinInputField
-                    {...PinInputFieldProps}
-                    className={styles.pin_input_item}
-                  />
-                </PinInput>
-              </HStack>
+              <>
+                {otpCheckStatus === "idle" ? (
+                  <>
+                    <h1 className={styles.modal_headline}>
+                      Подтверждение номера
+                    </h1>
+                    <p className={styles.modal_paragraph}>
+                      Мы отправили код подтверждения на указанный номер телефона
+                    </p>
+                    <HStack justifyContent={"center"}>
+                      <PinInput
+                        isDisabled={isOtpLoading}
+                        size={"lg"}
+                        autoFocus
+                        onChange={(e) => handleOtpChange(e)}
+                        onComplete={(e) => otpHandleSubmit(e)}
+                        value={codeOtpToSend}
+                        placeholder={""}
+                      >
+                        <PinInputField
+                          {...PinInputFieldProps}
+                          className={styles.pin_input_item}
+                        />
+                        <PinInputField
+                          {...PinInputFieldProps}
+                          className={styles.pin_input_item}
+                        />
+                        <PinInputField
+                          {...PinInputFieldProps}
+                          className={styles.pin_input_item}
+                        />
+                        <PinInputField
+                          {...PinInputFieldProps}
+                          className={styles.pin_input_item}
+                        />
+                      </PinInput>
+                    </HStack>
+                  </>
+                ) : otpCheckStatus === "success" ? (
+                  <>
+                    <h1 className={styles.modal_headline}>
+                      Заявка успешно оформлена
+                    </h1>
+                    <PrimaryButton text={"Закрыть"} onClick={onClose} />
+                  </>
+                ) : otpCheckStatus === "loading" ? (
+                  <Spinner color={"black"} borderWidth={"4px"} />
+                ) : otpCheckStatus === "error" ? (
+                  <>
+                  </>
+                ) : null}
+              </>
             ) : dataStatus === "loading" ? (
               <Spinner color={"#000"} />
             ) : dataStatus === "idle" ? (
@@ -329,7 +370,8 @@ export const MerchantAd = () => {
                     merchantDataToSend.industry === "" ||
                     merchantDataToSend.phone.length !== 9 ||
                     merchantDataToSend.address === "" ||
-                    merchantDataToSend.company_name === ""
+                    merchantDataToSend.company_name === "" ||
+                    merchantDataToSend.full_name === ""
                   }
                   text={"Подключить"}
                   padding={"25px 60px"}
@@ -337,9 +379,39 @@ export const MerchantAd = () => {
                   onClick={() => postFormData("merchant", merchIndustry)}
                   zIndex={0}
                 />
+                {phoneIsRegistered && (
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                    }}
+                  >
+                    <BiSolidErrorCircle color={"red"} size={20} />
+                    <h1 style={{ color: "red", fontSize: "12px" }}>
+                      На данный номер уже оформлена заявка
+                    </h1>
+                  </div>
+                )}
               </>
             ) : dataStatus === "error" ? (
-              <></>
+              <>
+                <h1 className={styles.modal_headline}>Неправильные данные</h1>
+                <p className={styles.modal_paragraph}>
+                  Неправильно указан номер телефона. Проверьте количество
+                  символов и повторите попытку
+                </p>
+                <PrimaryButton
+                  text={"Подключить"}
+                  padding={"25px 60px"}
+                  isLoading={isFormLoading}
+                  onClick={() => {
+                    setDataStatus("");
+                    setOtpCheckStatus("idle");
+                  }}
+                  zIndex={0}
+                />
+              </>
             ) : null}
           </div>
           <Image
