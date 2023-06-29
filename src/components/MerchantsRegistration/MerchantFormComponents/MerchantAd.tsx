@@ -32,6 +32,7 @@ import {
 import WhiteButton from "@/components/Buttons/WhiteButton";
 import { VscError } from "react-icons/vsc";
 import { BiSolidErrorCircle } from "react-icons/bi";
+import { AiFillCheckCircle } from "react-icons/ai";
 
 export const MerchantAd = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -262,16 +263,115 @@ export const MerchantAd = () => {
                     </HStack>
                   </>
                 ) : otpCheckStatus === "success" ? (
-                  <>
-                    <h1 className={styles.modal_headline}>
-                      Заявка успешно оформлена
-                    </h1>
-                    <PrimaryButton text={"Закрыть"} onClick={onClose} />
-                  </>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <AiFillCheckCircle color={"#34BA31"} size={"5em"} />
+                    <div>
+                      <h1 className={styles.modal_headline}>
+                        Номер подтвержден
+                      </h1>
+                      <p
+                        className={styles.modal_paragraph}
+                        style={{ maxWidth: "416px" }}
+                      >
+                        Мы приняли вашу заявку, в скорем времени с вами свяжутся
+                        наши специалисты для оформления Орзу
+                      </p>
+                    </div>
+                    <div className={styles.white_modal_content}>
+                      <div className={styles.white_modal_horizontal}>
+                        <p className={styles.white_modal_secondary_text}>ФИО</p>
+                        <p
+                          className={styles.white_modal_primary_text}
+                          style={{ maxWidth: "310px" }}
+                        >
+                          {merchantDataToSend.full_name}
+                        </p>
+                      </div>
+                      <div className={styles.white_modal_horizontal}>
+                        <p className={styles.white_modal_secondary_text}>
+                          Название предприятия
+                        </p>
+                        <p className={styles.white_modal_primary_text}>
+                          {merchantDataToSend.company_name}
+                        </p>
+                      </div>
+                      <div className={styles.white_modal_horizontal}>
+                        <p
+                          className={styles.white_modal_secondary_text}
+                          style={{ maxWidth: "310px" }}
+                        >
+                          Адрес
+                        </p>
+                        <p className={styles.white_modal_primary_text}>
+                          {merchantDataToSend.address}
+                        </p>
+                      </div>
+                      <div className={styles.white_modal_horizontal}>
+                        <p className={styles.white_modal_secondary_text}>
+                          Номер телефона
+                        </p>
+                        <p className={styles.white_modal_primary_text}>
+                          {merchantDataToSend.phone}
+                        </p>
+                      </div>
+                      <div className={styles.white_modal_horizontal}>
+                        <p className={styles.white_modal_secondary_text}>
+                          Отрасль
+                        </p>
+                        <p className={styles.white_modal_primary_text}>
+                          {merchantDataToSend.industry}
+                        </p>
+                      </div>
+                    </div>
+                    <WhiteButton text={"Закрыть"} onClick={onClose} />
+                  </div>
                 ) : otpCheckStatus === "loading" ? (
                   <Spinner color={"black"} borderWidth={"4px"} />
                 ) : otpCheckStatus === "error" ? (
                   <>
+                    <h1 className={styles.modal_headline}>
+                      Подтверждение номера
+                    </h1>
+                    <p className={styles.modal_paragraph}>
+                      Мы отправили код подтверждения на указанный номер телефона
+                    </p>
+                    <HStack justifyContent={"center"}>
+                      <PinInput
+                        isDisabled={isOtpLoading}
+                        size={"lg"}
+                        autoFocus
+                        onChange={(e) => handleOtpChange(e)}
+                        onComplete={(e) => otpHandleSubmit(e)}
+                        value={codeOtpToSend}
+                        placeholder={""}
+                      >
+                        <PinInputField
+                          {...PinInputFieldProps}
+                          className={styles.pin_input_item}
+                        />
+                        <PinInputField
+                          {...PinInputFieldProps}
+                          className={styles.pin_input_item}
+                        />
+                        <PinInputField
+                          {...PinInputFieldProps}
+                          className={styles.pin_input_item}
+                        />
+                        <PinInputField
+                          {...PinInputFieldProps}
+                          className={styles.pin_input_item}
+                        />
+                      </PinInput>
+                    </HStack>
+                    <p style={{ color: "red", alignSelf: "center" }}>
+                      Неправильно введен код подтверждения
+                    </p>
                   </>
                 ) : null}
               </>
