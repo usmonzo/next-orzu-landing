@@ -1,7 +1,6 @@
 "use client";
 import Calculator from "../Calculator/Calculator";
 import styles from "./PreFooterSection.module.scss";
-import React, { Fragment } from "react";
 import Image from "next/image";
 import bank from "../../../public/assets/bank.svg";
 import WhiteButton from "@/components/Buttons/WhiteButton";

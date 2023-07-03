@@ -7,14 +7,7 @@ import PrimaryButton from "../Buttons/PrimaryButton";
 import styles from "./Header.module.scss";
 import Image from "next/image";
 import HeaderContent from "../HeaderContent/HeaderContent";
-import {
-  motion,
-  motionValue,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import { Suspense, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar/Navbar";
 
 const Header = () => {

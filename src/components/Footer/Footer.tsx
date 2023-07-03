@@ -5,7 +5,6 @@ import telegram from "../../../public/assets/telegram.svg";
 import vk from "../../../public/assets/vk.svg";
 import facebook from "../../../public/assets/facebook.svg";
 import Image from "next/image";
-import Link from "next/link";
 export const Footer = () => {
   const date = new Date().getFullYear();
   return (

@@ -9,8 +9,8 @@ import couch from "../../../public/assets/mdi_sofa-single.svg";
 import comp from "../../../public/assets/monitor.svg";
 import ring from "../../../public/assets/icon-park-solid_diamond-ring.svg";
 import food from "../../../public/assets/fluent_food-apple-24-filled.svg";
-import parfum from "../../../public/assets/solar_perfume-bold.svg";
-import halmet from "../../../public/assets/mdi_helmet.svg";
+import perfume from "../../../public/assets/solar_perfume-bold.svg";
+import helmet from "../../../public/assets/mdi_helmet.svg";
 import tea from "../../../public/assets/coffee.svg";
 import gift from "../../../public/assets/gift.svg";
 import medicine from "../../../public/assets/solar_document-medicine-bold.svg";
@@ -25,7 +25,6 @@ import {
   useTransform,
 } from "framer-motion";
 import { useState } from "react";
-import Link from "next/link";
 
 const Merchants = () => {
   const [onView, setOnView] = useState(false);
@@ -138,7 +137,7 @@ const Merchants = () => {
           </MerchBox>
           <MerchBox text="Парфюмерия и косметика">
             <Image
-              src={parfum}
+              src={perfume}
               width={132}
               height={126}
               alt="2"
@@ -147,7 +146,7 @@ const Merchants = () => {
           </MerchBox>
           <MerchBox text="Стройматериалы">
             <Image
-              src={halmet}
+              src={helmet}
               width={132}
               height={80}
               alt="2"

@@ -8,7 +8,6 @@ import {
   AccordionPanel,
   Box,
 } from "@chakra-ui/react";
-import Header from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
 
 const FaqSection = () => {

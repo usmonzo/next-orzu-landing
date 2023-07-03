@@ -30,7 +30,6 @@ import {
   PinInputFieldProps,
 } from "@/components/MerchantsRegistration/MerchantFormComponents/CustomProps";
 import WhiteButton from "@/components/Buttons/WhiteButton";
-import { VscError } from "react-icons/vsc";
 import { BiSolidErrorCircle } from "react-icons/bi";
 import { AiFillCheckCircle } from "react-icons/ai";
 
@@ -56,8 +55,8 @@ export const MerchantAd = () => {
     status,
     isLoading: isFormLoading,
     mutate: postFormData,
-    isError: isFormError,
-    isIdle: isFormIdle,
+    // isError: isFormError,
+    // isIdle: isFormIdle,
   } = useMutation(
     async (type_of_client: string) => {
       return await apiClient.post(`/landing/sendApplication`, {
@@ -92,7 +91,7 @@ export const MerchantAd = () => {
     status: OtpStatus,
     isLoading: isOtpLoading,
     mutate: otpCodeSend,
-    isError: isOtpError,
+    // isError: isOtpError,
   } = useMutation(
     async (queries: IOtpRequest) => {
       return await apiClient.post(
